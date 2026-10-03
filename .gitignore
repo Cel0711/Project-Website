@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+.env
+.env.local
+packages/backend/data/*.json
+!packages/backend/data/.gitkeep
+packages/backend/logs/*.log
+!packages/backend/logs/.gitkeep
+.DS_Store
+Thumbs.db

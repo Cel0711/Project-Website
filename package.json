@@ -1,0 +1,27 @@
+{
+  "name": "coreloop-site-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "TypeScript rewrite of the Coreloop Systems site: shared domain model, Vite frontend, Express/PM2 backend.",
+  "workspaces": [
+    "packages/shared",
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "npm run build -w packages/shared && npm run build -w packages/backend && npm run build -w packages/frontend",
+    "dev:frontend": "npm run dev -w packages/frontend",
+    "dev:backend": "npm run dev -w packages/backend",
+    "typecheck": "npm run typecheck -w packages/shared && npm run typecheck -w packages/backend && npm run typecheck -w packages/frontend",
+    "pm2:start": "npm run build -w packages/shared && npm run build -w packages/backend && pm2 start packages/backend/ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop packages/backend/ecosystem.config.cjs",
+    "pm2:restart": "pm2 restart packages/backend/ecosystem.config.cjs",
+    "pm2:logs": "pm2 logs coreloop-api"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2"
+  }
+}
