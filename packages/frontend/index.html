@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coreloop Systems — custom software, automation and enterprise dashboards</title>
+<meta name="description" content="We build custom software: AI automation, data centre configuration automation, BOM and report automation, ops dashboards, Android apps, enterprise web and point of sale. Design your own screen in our studio and send it to us for a quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="Coreloop Systems, home">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <rect x=".5" y=".5" width="25" height="25" rx="5" fill="var(--ink)"/>
+        <circle cx="9" cy="9" r="3" fill="none" stroke="var(--signal)" stroke-width="1.8"/>
+        <circle cx="17.5" cy="17.5" r="3" fill="none" stroke="var(--signal)" stroke-width="1.8"/>
+        <path d="M11.6 10.8c2.4 1.2 3.2 2.4 4 4.2" stroke="var(--brand)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M9 12v2.6a2 2 0 0 0 2 2h3.2" stroke="#7E8D92" stroke-width="1.4" fill="none"/>
+      </svg>
+      <span>Coreloop<small>SYSTEMS / BUILD SHOP</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#studio">Design studio</a>
+      <a href="#build">What we build</a>
+      <a href="#process">How we work</a>
+      <a href="#quote">Contact</a>
+    </div>
+    <div class="nav-act">
+      <button class="iconbtn" id="themeBtn" aria-label="Switch colour theme" title="Switch colour theme">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3.2"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9L13 13M13 3l-1.1 1.1M4.1 11.9L3 13"/></svg>
+      </button>
+      <button class="iconbtn burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+      </button>
+      <a class="btn btn-hi" href="#quote">Get a quote</a>
+    </div>
+  </div>
+  <div class="mobmenu" id="mobmenu">
+    <a href="#work">Work</a><a href="#studio">Design studio</a><a href="#build">What we build</a><a href="#process">How we work</a><a href="#quote">Contact</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag"><i></i>Taking projects for Q4 2026</span>
+      <h1 class="d1" style="margin-top:16px">Software built around how your operation actually runs.</h1>
+      <p class="lead">We are a small build shop for custom software: AI automation, data centre and BOM process automation, ticketing, ops dashboards, Android apps, enterprise web and point of sale. One team, from the first workshop to the system your staff open every morning.</p>
+      <div class="hero-cta">
+        <a class="btn btn-hi btn-lg" href="#studio">Design your screen</a>
+        <a class="btn btn-line btn-lg" href="#work">See 15 builds</a>
+      </div>
+      <div class="hero-meta">
+        <div><b>15</b><span class="xs">systems shipped</span></div>
+        <div><b>6</b><span class="xs">industries served</span></div>
+        <div><b>2&ndash;10</b><span class="xs">weeks to first release</span></div>
+      </div>
+    </div>
+    <figure class="hero-fig" aria-label="Example of an operations dashboard we build">
+      <div class="laptop">
+        <div class="laptop-lid">
+          <div class="laptop-lid-back"></div>
+          <div class="laptop-bezel">
+            <i class="laptop-cam"></i>
+            <div id="heroShot" class="m-shot laptop-screen"></div>
+          </div>
+        </div>
+        <div class="laptop-hinge"></div>
+        <div class="laptop-deck"><span class="laptop-trackpad"></span></div>
+      </div>
+      <figcaption class="xs" style="margin-top:10px;display:flex;gap:8px;align-items:center">
+        <span class="mono" style="color:var(--brand)">WRK-07</span> Operations command dashboard &mdash; one of the builds in the catalogue below.
+      </figcaption>
+    </figure>
+  </div>
+</header>
+
+<hr class="rule">
+
+<section class="sec" id="build">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag"><i></i>What we build</span>
+      <h2 class="d2">Six kinds of work, one team</h2>
+      <p class="lead">Most clients arrive with a spreadsheet that has outgrown itself, or a process that only one person understands. We replace it with software your team can run without us.</p>
+    </div>
+    <div class="caps" id="caps"></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag"><i></i>Catalogue</span>
+      <h2 class="d2">Builds you can look inside</h2>
+      <p class="lead">Every screen below is the real interface pattern we ship, drawn live in your browser. Open one to read what is on the screen and why &mdash; then load it into the studio and change it into yours.</p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filter builds by type"></div>
+    <div class="work-grid" id="workGrid"></div>
+  </div>
+</section>
+
+<section class="studio-sec" id="studio">
+  <div class="wrap sec-head" style="max-width:var(--maxw);margin-bottom:26px">
+    <span class="tag"><i></i>Design studio &mdash; free, no sign-up</span>
+    <h2 class="d2" style="max-width:24ch">Draw the screen you want. We will quote it.</h2>
+    <p class="lead">Drag in presets, buttons, charts, maps, indicators, selectors, shapes and emojis. Restyle anything, switch between desktop, tablet and phone, then send the layout to us. You do not need to be a designer &mdash; a rough sketch tells us more than a paragraph.</p>
+  </div>
+
+  <div class="studio">
+    <div class="st-frame">
+
+      <div class="st-bar">
+        <div class="st-grp">
+          <button class="st-b" id="palBtn" title="Element library">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>
+            <span class="hide-s">Library</span>
+          </button>
+          <button class="st-b" id="inspBtn" title="Inspector">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h8M2 12h5"/></svg>
+            <span class="hide-s">Inspect</span>
+          </button>
+        </div>
+        <div class="st-grp" role="group" aria-label="Device">
+          <button class="st-b" data-dev="desktop" aria-pressed="true">Desktop</button>
+          <button class="st-b" data-dev="tablet" aria-pressed="false">Tablet</button>
+          <button class="st-b" data-dev="phone" aria-pressed="false">Phone</button>
+        </div>
+        <div class="st-grp" role="group" aria-label="Zoom">
+          <button class="st-b" id="zOut" aria-label="Zoom out">&minus;</button>
+          <span class="st-zoom" id="zLbl">100%</span>
+          <button class="st-b" id="zIn" aria-label="Zoom in">+</button>
+          <button class="st-b" id="zFit">Fit</button>
+        </div>
+        <div class="st-grp">
+          <button class="st-b" id="gridBtn" aria-pressed="true">Grid</button>
+          <button class="st-b" id="snapBtn" aria-pressed="true">Snap</button>
+          <button class="st-b" id="cvThemeBtn">Dark canvas</button>
+        </div>
+        <div class="st-grp">
+          <button class="st-b" id="undoBtn" aria-label="Undo" title="Undo (Ctrl+Z)" disabled>
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3L2.5 6.5 6 10"/><path d="M2.5 6.5h6A4.5 4.5 0 0 1 13 11v1.5"/></svg>
+          </button>
+          <button class="st-b" id="redoBtn" aria-label="Redo" title="Redo (Ctrl+Shift+Z)" disabled>
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3l3.5 3.5L10 10"/><path d="M13.5 6.5h-6A4.5 4.5 0 0 0 3 11v1.5"/></svg>
+          </button>
+          <button class="st-b" id="dupBtn" title="Duplicate (Ctrl+D)">Copy</button>
+          <button class="st-b" id="delBtn" title="Delete (Del)">Delete</button>
+        </div>
+        <div class="st-grp">
+          <button class="st-b" id="startBtn">Start from a build</button>
+          <button class="st-b" id="clearBtn">Clear</button>
+          <button class="st-b" id="saveFileBtn" title="Save the layout as a file">Save file</button>
+        </div>
+        <button class="st-b hi" id="quoteThisBtn" style="margin-left:auto">Send this for a quote</button>
+      </div>
+
+      <div class="st-main">
+        <aside class="st-pal" id="pal" aria-label="Element library">
+          <button class="drawer-close" data-close="pal" aria-label="Close library">&times;</button>
+          <div class="st-cats" id="stCats" role="group" aria-label="Element categories"></div>
+          <div class="st-search"><input id="stSearch" type="search" placeholder="Search 180+ elements" aria-label="Search elements"></div>
+          <div class="st-items" id="stItems"></div>
+        </aside>
+
+        <div class="st-cvwrap" id="cvWrap">
+          <div class="st-cv grid" id="cv" data-cv="light" tabindex="0" role="application" aria-label="Design canvas">
+            <div class="st-empty" id="cvEmpty">
+              <b>Empty canvas</b>
+              <span>Drag an element from the library, or tap one to drop it here. Try a preset first &mdash; &ldquo;Ops dashboard&rdquo; builds a whole screen in one go.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="st-insp" id="insp" aria-label="Inspector">
+          <button class="drawer-close" data-close="insp" aria-label="Close inspector">&times;</button>
+          <div class="st-ins-tabs" role="group" aria-label="Inspector tabs">
+            <button data-itab="style" aria-pressed="true">Element</button>
+            <button data-itab="layers" aria-pressed="false">Layers</button>
+            <button data-itab="page" aria-pressed="false">Page</button>
+          </div>
+          <div class="st-ins-body" id="inspBody"></div>
+        </aside>
+      </div>
+
+      <div class="st-foot">
+        <span id="stStat">0 elements</span>
+        <span class="sp mono" id="stSaved">Saved in this browser</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag"><i></i>How we work</span>
+      <h2 class="d2">Four stages, fixed price at stage two</h2>
+      <p class="lead">You will know the cost and the delivery date before any code is written, and you own the source from day one.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="step-n">Stage 1 &middot; free</span><h3>Walk the process with us</h3><p>A 45-minute call, or a visit if you are nearby. We watch the current process, count the manual steps and find where the time actually goes.</p></li>
+      <li class="step"><span class="step-n">Stage 2 &middot; 2&ndash;4 days</span><h3>Screens and a fixed quote</h3><p>You get clickable screens, a written scope and one price. If your sketch came from the studio above, this stage starts from your layout.</p></li>
+      <li class="step"><span class="step-n">Stage 3 &middot; 2&ndash;10 weeks</span><h3>Build in weekly releases</h3><p>Something usable lands every week on a staging link. You test with real data and real staff, and we adjust while it is still cheap to adjust.</p></li>
+      <li class="step"><span class="step-n">Stage 4 &middot; ongoing</span><h3>Hand over and support</h3><p>Source code, documentation and a training session for your team. Support and small changes continue monthly only if you want them.</p></li>
+    </ol>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="sec" id="quote">
+  <div class="wrap q-grid">
+    <div>
+      <div class="sec-head" style="margin-bottom:20px">
+        <span class="tag"><i></i>Request a quote</span>
+        <h2 class="d2">Tell us what is slowing you down</h2>
+        <p class="lead">Send a sketch, a screenshot, a spreadsheet or two paragraphs. We reply within one business day with a scope, a price range and the questions we still have.</p>
+      </div>
+      <div class="contact-list">
+        <div><span class="fld">Email</span><b id="cEmail">hello@example.com</b></div>
+        <div><span class="fld">Response time</span><b>Within 1 business day</b></div>
+        <div><span class="fld">Engagements</span><b>Fixed-price projects and monthly retainers</b></div>
+        <div><span class="fld">Works with</span><b>Individuals, SMEs and enterprise IT teams</b></div>
+      </div>
+    </div>
+
+    <form class="form" id="quoteForm" novalidate>
+      <div class="f2">
+        <div class="fi"><label for="qName">Your name</label><input id="qName" name="name" autocomplete="name" required></div>
+        <div class="fi"><label for="qCompany">Company (optional)</label><input id="qCompany" name="company" autocomplete="organization"></div>
+      </div>
+      <div class="f2">
+        <div class="fi"><label for="qEmail">Email</label><input id="qEmail" name="email" type="email" autocomplete="email" required></div>
+        <div class="fi"><label for="qPhone">Phone or WhatsApp (optional)</label><input id="qPhone" name="phone" autocomplete="tel"></div>
+      </div>
+      <div class="fi">
+        <label>What do you need built? Pick any</label>
+        <div class="pickrow" id="qKind" role="group" aria-label="Type of work"></div>
+      </div>
+      <div class="fi">
+        <label>Choose a plan</label>
+        <div class="plans" id="qPlans" role="group" aria-label="Plan"></div>
+        <span class="xs" id="planNote"></span>
+      </div>
+      <div class="f2">
+        <div class="fi"><label for="qBudget">Budget range</label>
+          <select id="qBudget" name="budget">
+            <option>Not sure yet &mdash; advise me</option><option>Under 5k</option><option>5k &ndash; 15k</option><option>15k &ndash; 50k</option><option>50k &ndash; 150k</option><option>Above 150k</option>
+          </select></div>
+        <div class="fi"><label for="qWhen">Timeline</label>
+          <select id="qWhen" name="timeline">
+            <option>As soon as possible</option><option>Within 1 month</option><option>1 &ndash; 3 months</option><option>Later this year</option><option>Just researching</option>
+          </select></div>
+      </div>
+      <div class="fi">
+        <label for="qNotes">What happens today, and what should happen instead?</label>
+        <textarea id="qNotes" name="notes" placeholder="Example: three people re-key supplier quotes into a BOM spreadsheet every week. Errors reach production. We want one screen where quotes come in, costs roll up and approvals are logged."></textarea>
+      </div>
+      <label class="attach" for="qAttach">
+        <input type="checkbox" id="qAttach" checked>
+        <span class="sm" style="color:var(--ink)">Attach my studio design<br><span class="xs" id="attachState">Nothing drawn yet &mdash; the studio above is optional.</span></span>
+      </label>
+      <button class="btn btn-hi btn-lg" type="submit" style="justify-self:start">Send request</button>
+      <div class="send-out" id="sendOut" aria-live="polite">
+        <div>
+          <b class="d4" id="soTitle">Request ready</b>
+          <p class="sm" id="soMsg" style="margin-top:4px"></p>
+        </div>
+        <div class="row">
+          <a class="btn btn-brand" id="soMail" href="#">Open email</a>
+          <button class="btn btn-line" id="soCopy" type="button">Copy brief</button>
+          <button class="btn btn-line" id="soFile" type="button">Download design file</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="brand" style="margin-bottom:12px">
+          <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+            <rect x=".5" y=".5" width="25" height="25" rx="5" fill="#0F191C"/>
+            <circle cx="9" cy="9" r="3" fill="none" stroke="#FFC41F" stroke-width="1.8"/>
+            <circle cx="17.5" cy="17.5" r="3" fill="none" stroke="#FFC41F" stroke-width="1.8"/>
+            <path d="M11.6 10.8c2.4 1.2 3.2 2.4 4 4.2" stroke="#3CBFA6" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span>Coreloop<small>SYSTEMS / BUILD SHOP</small></span>
+        </div>
+        <p style="font-size:14px;color:#A9BAB8;max-width:36ch">Custom software, automation and enterprise interfaces. Built by the people you talk to.</p>
+      </div>
+      <div><h4>Work</h4><ul id="fWork"></ul></div>
+      <div><h4>Pages</h4><ul>
+        <li><a href="#build">What we build</a></li><li><a href="#work">Catalogue</a></li><li><a href="#studio">Design studio</a></li><li><a href="#process">How we work</a></li><li><a href="#quote">Request a quote</a></li>
+      </ul></div>
+      <div><h4>Contact</h4><ul>
+        <li><a href="#" id="fMail">hello@example.com</a></li><li>Replies within 1 business day</li><li>Remote, worldwide</li>
+      </ul></div>
+    </div>
+    <div class="f-bot">
+      <span>&copy; <span id="yr">2026</span> Coreloop Systems. All rights reserved.</span>
+      <span class="mono">Screens on this page are drawn live in your browser</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-bg" data-close-modal></div>
+  <div class="modal-card">
+    <button class="iconbtn modal-x" data-close-modal aria-label="Close">
+      <svg width="15" height="15" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>
+    </button>
+    <div class="m-head">
+      <span class="mono" id="mId" style="color:var(--brand)"></span>
+      <h3 class="d3" id="mTitle" style="margin:6px 0 8px"></h3>
+      <p class="lead" id="mBlurb" style="font-size:16px"></p>
+    </div>
+    <div class="m-body">
+      <div class="m-shot" id="mShot"></div>
+      <div>
+        <h4 class="d4" style="margin-bottom:12px">What you are looking at</h4>
+        <ul class="readlist" id="mRead"></ul>
+      </div>
+      <div class="specs" id="mSpecs"></div>
+      <div>
+        <h4 class="d4" style="margin-bottom:10px">Built with</h4>
+        <ul class="tagrow" id="mStack"></ul>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);padding-top:20px">
+        <button class="btn btn-hi" id="mOpen">Open this in the studio</button>
+        <a class="btn btn-line" href="#quote" data-close-modal>Ask about a build like this</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
