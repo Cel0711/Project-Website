@@ -1,6 +1,6 @@
-import { $, $$, clamp, toast, uid } from '../core/dom.js';
-import { goQuote } from '../quote/form.js';
-import { saveDesignFile } from '../quote/fallback.js';
+import { $, $$, clamp, toast, uid } from '../../core/dom.js';
+import { goQuote } from '../request-quote/form.js';
+import { saveDesignFile } from '../request-quote/fallback.js';
 import { buildInspector, onInspectorInput } from './inspector.js';
 import { buildPalCats, buildPalette } from './palette-ui.js';
 import { saveLocal } from './persistence.js';

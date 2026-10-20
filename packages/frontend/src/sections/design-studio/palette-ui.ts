@@ -1,10 +1,10 @@
 import type { ElementInstance } from '@coreloop/shared';
-import { $, $$, clamp, esc, toast } from '../core/dom.js';
-import { EMOJI, PAL, PAL_CATS } from '../content/palette-data.js';
-import { PRESETS } from '../content/presets.js';
-import { PROJECTS } from '../content/projects.js';
-import { SCENES } from '../content/scenes.js';
-import { mk } from '../engine/factory.js';
+import { $, $$, clamp, esc, toast } from '../../core/dom.js';
+import { EMOJI, PAL, PAL_CATS } from './palette-data.js';
+import { PRESETS } from './presets.js';
+import { PROJECTS } from '../catalogue/projects.js';
+import { SCENES } from '../catalogue/scenes.js';
+import { mk } from '../../engine/factory.js';
 import { cvPoint, renderCanvas, syncCvTheme, syncDevBtns, zoomFit } from './canvas.js';
 import { saveLocal } from './persistence.js';
 import { cv, cvWrap, DEV, pushUndo, S, snap } from './state.js';

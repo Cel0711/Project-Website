@@ -1,0 +1,48 @@
+/* Section: Request a quote  (anchor #quote)
+   Markup: request-quote.html   Behaviour: index.ts */
+
+/* ============ quote form ============ */
+.q-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(24px,4vw,56px);align-items:start}
+.form{display:grid;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r-l);padding:clamp(18px,2.6vw,28px);box-shadow:var(--sh-1)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fi{display:grid;gap:6px}
+.fi>label{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.fi input,.fi select,.fi textarea{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--r-m);padding:10px 12px;font-size:14.5px;width:100%}
+.fi input:focus,.fi select:focus,.fi textarea:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px var(--brand-tint)}
+.fi textarea{resize:vertical;min-height:96px}
+.pickrow{display:flex;flex-wrap:wrap;gap:6px}
+.pick{border:1px solid var(--line-2);background:var(--panel-2);border-radius:100px;padding:6px 12px;font-size:13px;cursor:pointer}
+.pick[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.attach{display:flex;gap:10px;align-items:flex-start;border:1px dashed var(--line-2);border-radius:var(--r-m);padding:12px;background:var(--panel-2)}
+.attach input{margin-top:3px;accent-color:var(--brand)}
+.send-out{display:grid;gap:10px;border:1px solid var(--brand);background:var(--brand-tint);border-radius:var(--r-m);padding:16px;display:none}
+.send-out.open{display:grid}
+.send-out .row{display:flex;flex-wrap:wrap;gap:8px}
+.contact-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden;margin-top:22px}
+.contact-list div{background:var(--panel);padding:14px 16px;display:grid;gap:3px}
+.contact-list b{font-size:14.5px;font-weight:600}
+
+/* ============ plan chooser ============ */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(152px,1fr));gap:8px}
+.plan{position:relative;text-align:left;border:1px solid var(--line-2);background:var(--panel-2);border-radius:var(--r-m);padding:12px 12px 13px;cursor:pointer;display:grid;gap:6px;align-content:start;font:inherit;color:inherit}
+.plan:hover{border-color:var(--ink-3)}
+.plan[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-tint);box-shadow:inset 0 0 0 1px var(--brand)}
+.plan b{font-size:14px;font-weight:600;letter-spacing:-.012em;padding-right:22px}
+.plan .pp{font-family:var(--mono);font-size:13px;color:var(--brand);font-weight:500}
+.plan .pn{font-size:11.5px;color:var(--ink-3)}
+.plan ul{display:grid;gap:4px;margin-top:2px}
+.plan li{font-size:11.5px;color:var(--ink-2);line-height:1.35;display:grid;grid-template-columns:11px 1fr;gap:5px}
+.plan li svg{margin-top:4px}
+.plan .tick{position:absolute;right:10px;top:10px;width:17px;height:17px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--panel);display:grid;place-items:center}
+.plan[aria-pressed="true"] .tick{border-color:var(--brand);background:var(--brand)}
+.plan[aria-pressed="true"] .tick svg{display:block}
+.plan .tick svg{display:none}
+.plan .rec{position:absolute;right:-1px;top:-1px;background:var(--signal);color:#17242A;font:600 9.5px/1 var(--sans);padding:4px 7px;border-radius:0 var(--r-m) 0 6px}
+.plan[data-rec="1"] b{padding-right:60px}
+
+@media (max-width:1000px){
+  .q-grid{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .f2{grid-template-columns:1fr}
+}

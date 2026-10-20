@@ -1,0 +1,12 @@
+/* Section: How we work  (anchor #process)
+   Markup: how-we-work.html   Behaviour: index.ts */
+
+/* ============ process ============ */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(16px,2vw,26px);counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:16px;display:grid;gap:8px;align-content:start}
+.step:nth-child(2){border-color:var(--brand)}
+.step:nth-child(3){border-color:var(--signal)}
+.step:nth-child(4){border-color:var(--line-2)}
+.step-n{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.step h3{font-size:17px;font-weight:600;letter-spacing:-.016em}
+.step p{font-size:14px;color:var(--ink-2);line-height:1.5}

@@ -1,0 +1,91 @@
+<section class="studio-sec" id="studio">
+  <div class="wrap sec-head" style="max-width:var(--maxw);margin-bottom:26px">
+    <span class="tag"><i></i>Design studio &mdash; free, no sign-up</span>
+    <h2 class="d2" style="max-width:24ch">Draw the screen you want. We will quote it.</h2>
+    <p class="lead">Drag in presets, buttons, charts, maps, indicators, selectors, shapes and emojis. Restyle anything, switch between desktop, tablet and phone, then send the layout to us. You do not need to be a designer &mdash; a rough sketch tells us more than a paragraph.</p>
+  </div>
+
+  <div class="studio">
+    <div class="st-frame">
+
+      <div class="st-bar">
+        <div class="st-grp">
+          <button class="st-b" id="palBtn" title="Element library">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>
+            <span class="hide-s">Library</span>
+          </button>
+          <button class="st-b" id="inspBtn" title="Inspector">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h8M2 12h5"/></svg>
+            <span class="hide-s">Inspect</span>
+          </button>
+        </div>
+        <div class="st-grp" role="group" aria-label="Device">
+          <button class="st-b" data-dev="desktop" aria-pressed="true">Desktop</button>
+          <button class="st-b" data-dev="tablet" aria-pressed="false">Tablet</button>
+          <button class="st-b" data-dev="phone" aria-pressed="false">Phone</button>
+        </div>
+        <div class="st-grp" role="group" aria-label="Zoom">
+          <button class="st-b" id="zOut" aria-label="Zoom out">&minus;</button>
+          <span class="st-zoom" id="zLbl">100%</span>
+          <button class="st-b" id="zIn" aria-label="Zoom in">+</button>
+          <button class="st-b" id="zFit">Fit</button>
+        </div>
+        <div class="st-grp">
+          <button class="st-b" id="gridBtn" aria-pressed="true">Grid</button>
+          <button class="st-b" id="snapBtn" aria-pressed="true">Snap</button>
+          <button class="st-b" id="cvThemeBtn">Dark canvas</button>
+        </div>
+        <div class="st-grp">
+          <button class="st-b" id="undoBtn" aria-label="Undo" title="Undo (Ctrl+Z)" disabled>
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3L2.5 6.5 6 10"/><path d="M2.5 6.5h6A4.5 4.5 0 0 1 13 11v1.5"/></svg>
+          </button>
+          <button class="st-b" id="redoBtn" aria-label="Redo" title="Redo (Ctrl+Shift+Z)" disabled>
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3l3.5 3.5L10 10"/><path d="M13.5 6.5h-6A4.5 4.5 0 0 0 3 11v1.5"/></svg>
+          </button>
+          <button class="st-b" id="dupBtn" title="Duplicate (Ctrl+D)">Copy</button>
+          <button class="st-b" id="delBtn" title="Delete (Del)">Delete</button>
+        </div>
+        <div class="st-grp">
+          <button class="st-b" id="startBtn">Start from a build</button>
+          <button class="st-b" id="clearBtn">Clear</button>
+          <button class="st-b" id="saveFileBtn" title="Save the layout as a file">Save file</button>
+        </div>
+        <button class="st-b hi" id="quoteThisBtn" style="margin-left:auto">Send this for a quote</button>
+      </div>
+
+      <div class="st-main">
+        <aside class="st-pal" id="pal" aria-label="Element library">
+          <button class="drawer-close" data-close="pal" aria-label="Close library">&times;</button>
+          <div class="st-cats" id="stCats" role="group" aria-label="Element categories"></div>
+          <div class="st-search"><input id="stSearch" type="search" placeholder="Search 180+ elements" aria-label="Search elements"></div>
+          <div class="st-items" id="stItems"></div>
+        </aside>
+
+        <div class="st-cvwrap" id="cvWrap">
+          <div class="st-cv grid" id="cv" data-cv="light" tabindex="0" role="application" aria-label="Design canvas">
+            <div class="st-empty" id="cvEmpty">
+              <b>Empty canvas</b>
+              <span>Drag an element from the library, or tap one to drop it here. Try a preset first &mdash; &ldquo;Ops dashboard&rdquo; builds a whole screen in one go.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="st-insp" id="insp" aria-label="Inspector">
+          <button class="drawer-close" data-close="insp" aria-label="Close inspector">&times;</button>
+          <div class="st-ins-tabs" role="group" aria-label="Inspector tabs">
+            <button data-itab="style" aria-pressed="true">Element</button>
+            <button data-itab="layers" aria-pressed="false">Layers</button>
+            <button data-itab="page" aria-pressed="false">Page</button>
+          </div>
+          <div class="st-ins-body" id="inspBody"></div>
+        </aside>
+      </div>
+
+      <div class="st-foot">
+        <span id="stStat">0 elements</span>
+        <span class="sp mono" id="stSaved">Saved in this browser</span>
+      </div>
+
+    </div>
+  </div>
+</section>

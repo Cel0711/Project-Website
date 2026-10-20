@@ -1,0 +1,29 @@
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-bg" data-close-modal></div>
+  <div class="modal-card">
+    <button class="iconbtn modal-x" data-close-modal aria-label="Close">
+      <svg width="15" height="15" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>
+    </button>
+    <div class="m-head">
+      <span class="mono" id="mId" style="color:var(--brand)"></span>
+      <h3 class="d3" id="mTitle" style="margin:6px 0 8px"></h3>
+      <p class="lead" id="mBlurb" style="font-size:16px"></p>
+    </div>
+    <div class="m-body">
+      <div class="m-shot" id="mShot"></div>
+      <div>
+        <h4 class="d4" style="margin-bottom:12px">What you are looking at</h4>
+        <ul class="readlist" id="mRead"></ul>
+      </div>
+      <div class="specs" id="mSpecs"></div>
+      <div>
+        <h4 class="d4" style="margin-bottom:10px">Built with</h4>
+        <ul class="tagrow" id="mStack"></ul>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);padding-top:20px">
+        <button class="btn btn-hi" id="mOpen">Open this in the studio</button>
+        <a class="btn btn-line" href="#quote" data-close-modal>Ask about a build like this</a>
+      </div>
+    </div>
+  </div>
+</div>

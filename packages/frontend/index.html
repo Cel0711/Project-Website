@@ -84,208 +84,19 @@
 
 <hr class="rule">
 
-<section class="sec" id="build">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag"><i></i>What we build</span>
-      <h2 class="d2">Six kinds of work, one team</h2>
-      <p class="lead">Most clients arrive with a spreadsheet that has outgrown itself, or a process that only one person understands. We replace it with software your team can run without us.</p>
-    </div>
-    <div class="caps" id="caps"></div>
-  </div>
-</section>
+<!-- @include src/sections/what-we-build/what-we-build.html -->
 
 <hr class="rule">
 
-<section class="sec" id="work">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag"><i></i>Catalogue</span>
-      <h2 class="d2">Builds you can look inside</h2>
-      <p class="lead">Every screen below is the real interface pattern we ship, drawn live in your browser. Open one to read what is on the screen and why &mdash; then load it into the studio and change it into yours.</p>
-    </div>
-    <div class="filters" id="filters" role="group" aria-label="Filter builds by type"></div>
-    <div class="work-grid" id="workGrid"></div>
-  </div>
-</section>
+<!-- @include src/sections/catalogue/catalogue.html -->
 
-<section class="studio-sec" id="studio">
-  <div class="wrap sec-head" style="max-width:var(--maxw);margin-bottom:26px">
-    <span class="tag"><i></i>Design studio &mdash; free, no sign-up</span>
-    <h2 class="d2" style="max-width:24ch">Draw the screen you want. We will quote it.</h2>
-    <p class="lead">Drag in presets, buttons, charts, maps, indicators, selectors, shapes and emojis. Restyle anything, switch between desktop, tablet and phone, then send the layout to us. You do not need to be a designer &mdash; a rough sketch tells us more than a paragraph.</p>
-  </div>
+<!-- @include src/sections/design-studio/design-studio.html -->
 
-  <div class="studio">
-    <div class="st-frame">
-
-      <div class="st-bar">
-        <div class="st-grp">
-          <button class="st-b" id="palBtn" title="Element library">
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>
-            <span class="hide-s">Library</span>
-          </button>
-          <button class="st-b" id="inspBtn" title="Inspector">
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h12M2 8h8M2 12h5"/></svg>
-            <span class="hide-s">Inspect</span>
-          </button>
-        </div>
-        <div class="st-grp" role="group" aria-label="Device">
-          <button class="st-b" data-dev="desktop" aria-pressed="true">Desktop</button>
-          <button class="st-b" data-dev="tablet" aria-pressed="false">Tablet</button>
-          <button class="st-b" data-dev="phone" aria-pressed="false">Phone</button>
-        </div>
-        <div class="st-grp" role="group" aria-label="Zoom">
-          <button class="st-b" id="zOut" aria-label="Zoom out">&minus;</button>
-          <span class="st-zoom" id="zLbl">100%</span>
-          <button class="st-b" id="zIn" aria-label="Zoom in">+</button>
-          <button class="st-b" id="zFit">Fit</button>
-        </div>
-        <div class="st-grp">
-          <button class="st-b" id="gridBtn" aria-pressed="true">Grid</button>
-          <button class="st-b" id="snapBtn" aria-pressed="true">Snap</button>
-          <button class="st-b" id="cvThemeBtn">Dark canvas</button>
-        </div>
-        <div class="st-grp">
-          <button class="st-b" id="undoBtn" aria-label="Undo" title="Undo (Ctrl+Z)" disabled>
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3L2.5 6.5 6 10"/><path d="M2.5 6.5h6A4.5 4.5 0 0 1 13 11v1.5"/></svg>
-          </button>
-          <button class="st-b" id="redoBtn" aria-label="Redo" title="Redo (Ctrl+Shift+Z)" disabled>
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3l3.5 3.5L10 10"/><path d="M13.5 6.5h-6A4.5 4.5 0 0 0 3 11v1.5"/></svg>
-          </button>
-          <button class="st-b" id="dupBtn" title="Duplicate (Ctrl+D)">Copy</button>
-          <button class="st-b" id="delBtn" title="Delete (Del)">Delete</button>
-        </div>
-        <div class="st-grp">
-          <button class="st-b" id="startBtn">Start from a build</button>
-          <button class="st-b" id="clearBtn">Clear</button>
-          <button class="st-b" id="saveFileBtn" title="Save the layout as a file">Save file</button>
-        </div>
-        <button class="st-b hi" id="quoteThisBtn" style="margin-left:auto">Send this for a quote</button>
-      </div>
-
-      <div class="st-main">
-        <aside class="st-pal" id="pal" aria-label="Element library">
-          <button class="drawer-close" data-close="pal" aria-label="Close library">&times;</button>
-          <div class="st-cats" id="stCats" role="group" aria-label="Element categories"></div>
-          <div class="st-search"><input id="stSearch" type="search" placeholder="Search 180+ elements" aria-label="Search elements"></div>
-          <div class="st-items" id="stItems"></div>
-        </aside>
-
-        <div class="st-cvwrap" id="cvWrap">
-          <div class="st-cv grid" id="cv" data-cv="light" tabindex="0" role="application" aria-label="Design canvas">
-            <div class="st-empty" id="cvEmpty">
-              <b>Empty canvas</b>
-              <span>Drag an element from the library, or tap one to drop it here. Try a preset first &mdash; &ldquo;Ops dashboard&rdquo; builds a whole screen in one go.</span>
-            </div>
-          </div>
-        </div>
-
-        <aside class="st-insp" id="insp" aria-label="Inspector">
-          <button class="drawer-close" data-close="insp" aria-label="Close inspector">&times;</button>
-          <div class="st-ins-tabs" role="group" aria-label="Inspector tabs">
-            <button data-itab="style" aria-pressed="true">Element</button>
-            <button data-itab="layers" aria-pressed="false">Layers</button>
-            <button data-itab="page" aria-pressed="false">Page</button>
-          </div>
-          <div class="st-ins-body" id="inspBody"></div>
-        </aside>
-      </div>
-
-      <div class="st-foot">
-        <span id="stStat">0 elements</span>
-        <span class="sp mono" id="stSaved">Saved in this browser</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="process">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag"><i></i>How we work</span>
-      <h2 class="d2">Four stages, fixed price at stage two</h2>
-      <p class="lead">You will know the cost and the delivery date before any code is written, and you own the source from day one.</p>
-    </div>
-    <ol class="steps">
-      <li class="step"><span class="step-n">Stage 1 &middot; free</span><h3>Walk the process with us</h3><p>A 45-minute call, or a visit if you are nearby. We watch the current process, count the manual steps and find where the time actually goes.</p></li>
-      <li class="step"><span class="step-n">Stage 2 &middot; 2&ndash;4 days</span><h3>Screens and a fixed quote</h3><p>You get clickable screens, a written scope and one price. If your sketch came from the studio above, this stage starts from your layout.</p></li>
-      <li class="step"><span class="step-n">Stage 3 &middot; 2&ndash;10 weeks</span><h3>Build in weekly releases</h3><p>Something usable lands every week on a staging link. You test with real data and real staff, and we adjust while it is still cheap to adjust.</p></li>
-      <li class="step"><span class="step-n">Stage 4 &middot; ongoing</span><h3>Hand over and support</h3><p>Source code, documentation and a training session for your team. Support and small changes continue monthly only if you want them.</p></li>
-    </ol>
-  </div>
-</section>
+<!-- @include src/sections/how-we-work/how-we-work.html -->
 
 <hr class="rule">
 
-<section class="sec" id="quote">
-  <div class="wrap q-grid">
-    <div>
-      <div class="sec-head" style="margin-bottom:20px">
-        <span class="tag"><i></i>Request a quote</span>
-        <h2 class="d2">Tell us what is slowing you down</h2>
-        <p class="lead">Send a sketch, a screenshot, a spreadsheet or two paragraphs. We reply within one business day with a scope, a price range and the questions we still have.</p>
-      </div>
-      <div class="contact-list">
-        <div><span class="fld">Email</span><b id="cEmail">hello@example.com</b></div>
-        <div><span class="fld">Response time</span><b>Within 1 business day</b></div>
-        <div><span class="fld">Engagements</span><b>Fixed-price projects and monthly retainers</b></div>
-        <div><span class="fld">Works with</span><b>Individuals, SMEs and enterprise IT teams</b></div>
-      </div>
-    </div>
-
-    <form class="form" id="quoteForm" novalidate>
-      <div class="f2">
-        <div class="fi"><label for="qName">Your name</label><input id="qName" name="name" autocomplete="name" required></div>
-        <div class="fi"><label for="qCompany">Company (optional)</label><input id="qCompany" name="company" autocomplete="organization"></div>
-      </div>
-      <div class="f2">
-        <div class="fi"><label for="qEmail">Email</label><input id="qEmail" name="email" type="email" autocomplete="email" required></div>
-        <div class="fi"><label for="qPhone">Phone or WhatsApp (optional)</label><input id="qPhone" name="phone" autocomplete="tel"></div>
-      </div>
-      <div class="fi">
-        <label>What do you need built? Pick any</label>
-        <div class="pickrow" id="qKind" role="group" aria-label="Type of work"></div>
-      </div>
-      <div class="fi">
-        <label>Choose a plan</label>
-        <div class="plans" id="qPlans" role="group" aria-label="Plan"></div>
-        <span class="xs" id="planNote"></span>
-      </div>
-      <div class="f2">
-        <div class="fi"><label for="qBudget">Budget range</label>
-          <select id="qBudget" name="budget">
-            <option>Not sure yet &mdash; advise me</option><option>Under 5k</option><option>5k &ndash; 15k</option><option>15k &ndash; 50k</option><option>50k &ndash; 150k</option><option>Above 150k</option>
-          </select></div>
-        <div class="fi"><label for="qWhen">Timeline</label>
-          <select id="qWhen" name="timeline">
-            <option>As soon as possible</option><option>Within 1 month</option><option>1 &ndash; 3 months</option><option>Later this year</option><option>Just researching</option>
-          </select></div>
-      </div>
-      <div class="fi">
-        <label for="qNotes">What happens today, and what should happen instead?</label>
-        <textarea id="qNotes" name="notes" placeholder="Example: three people re-key supplier quotes into a BOM spreadsheet every week. Errors reach production. We want one screen where quotes come in, costs roll up and approvals are logged."></textarea>
-      </div>
-      <label class="attach" for="qAttach">
-        <input type="checkbox" id="qAttach" checked>
-        <span class="sm" style="color:var(--ink)">Attach my studio design<br><span class="xs" id="attachState">Nothing drawn yet &mdash; the studio above is optional.</span></span>
-      </label>
-      <button class="btn btn-hi btn-lg" type="submit" style="justify-self:start">Send request</button>
-      <div class="send-out" id="sendOut" aria-live="polite">
-        <div>
-          <b class="d4" id="soTitle">Request ready</b>
-          <p class="sm" id="soMsg" style="margin-top:4px"></p>
-        </div>
-        <div class="row">
-          <a class="btn btn-brand" id="soMail" href="#">Open email</a>
-          <button class="btn btn-line" id="soCopy" type="button">Copy brief</button>
-          <button class="btn btn-line" id="soFile" type="button">Download design file</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
+<!-- @include src/sections/request-quote/request-quote.html -->
 
 <footer>
   <div class="wrap">
@@ -319,35 +130,7 @@
 
 </main>
 
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
-  <div class="modal-bg" data-close-modal></div>
-  <div class="modal-card">
-    <button class="iconbtn modal-x" data-close-modal aria-label="Close">
-      <svg width="15" height="15" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>
-    </button>
-    <div class="m-head">
-      <span class="mono" id="mId" style="color:var(--brand)"></span>
-      <h3 class="d3" id="mTitle" style="margin:6px 0 8px"></h3>
-      <p class="lead" id="mBlurb" style="font-size:16px"></p>
-    </div>
-    <div class="m-body">
-      <div class="m-shot" id="mShot"></div>
-      <div>
-        <h4 class="d4" style="margin-bottom:12px">What you are looking at</h4>
-        <ul class="readlist" id="mRead"></ul>
-      </div>
-      <div class="specs" id="mSpecs"></div>
-      <div>
-        <h4 class="d4" style="margin-bottom:10px">Built with</h4>
-        <ul class="tagrow" id="mStack"></ul>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);padding-top:20px">
-        <button class="btn btn-hi" id="mOpen">Open this in the studio</button>
-        <a class="btn btn-line" href="#quote" data-close-modal>Ask about a build like this</a>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- @include src/sections/catalogue/project-modal.html -->
 
 <div id="toast" role="status" aria-live="polite"></div>
 

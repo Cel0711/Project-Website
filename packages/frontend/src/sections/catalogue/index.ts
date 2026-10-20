@@ -1,21 +1,15 @@
+// Section: Catalogue (#work) — the filterable grid of builds plus the project detail modal.
+// Markup: catalogue.html, project-modal.html · Styles: catalogue.css · Data: projects.ts, scenes.ts
 import type { ProjectCategory, Scene } from '@coreloop/shared';
-import { $, $$, esc } from '../core/dom.js';
-import { CAPS } from '../content/caps.js';
-import { PROJECTS } from '../content/projects.js';
-import { SCENES } from '../content/scenes.js';
-import { paintScene } from '../engine/stage.js';
-
-export function buildCaps(): void {
-  const h = $<HTMLElement>('#caps');
-  if (!h) return;
-  h.innerHTML = CAPS.map((c) =>
-    `<article class="cap"><span class="cap-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${c.ic}"/></svg></span>` +
-    `<h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><ul>${c.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></article>`,
-  ).join('');
-}
+import { $, $$, esc } from '../../core/dom.js';
+import { PROJECTS } from './projects.js';
+import { SCENES } from './scenes.js';
+import { paintScene } from '../../engine/stage.js';
+import './catalogue.css';
 
 const sceneCache: Record<string, Scene> = {};
-function getScene(k: string): Scene {
+/** Shared with the hero laptop (page/hero.ts), which paints one of these scenes. */
+export function getScene(k: string): Scene {
   if (!sceneCache[k]) {
     const factory = SCENES[k];
     if (!factory) throw new Error(`Unknown scene: ${k}`);
@@ -93,36 +87,17 @@ export function closeModal(): void {
   document.body.style.overflow = '';
 }
 
-export function buildFooterLinks(): void {
-  const h = $<HTMLElement>('#fWork');
-  if (!h) return;
-  h.innerHTML = PROJECTS.slice(0, 6).map((p) => `<li><a href="#work" data-open="${p.id}">${esc(p.t)}</a></li>`).join('');
-  h.addEventListener('click', (ev) => {
-    const a = (ev.target as HTMLElement).closest<HTMLElement>('[data-open]');
-    if (!a) return;
-    ev.preventDefault();
-    openProject(a.getAttribute('data-open') ?? '');
-  });
-}
+/** Wires up the section: filter chips, build grid, and the project detail modal. */
+export function initCatalogue(): void {
+  buildFilters();
+  buildWork();
 
-export function buildHero(): void {
-  const h = $<HTMLElement>('#heroShot');
-  if (!h) return;
-  paintScene(h, getScene('execOps'));
-  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-  const lidDelay = 1.3; // screen boots up once the laptop lid has finished opening
-  const els = $$<HTMLElement>('.el', h);
-  els.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = (el.style.transform || '') + ' translateY(9px)';
-    el.style.transition = `opacity .5s ease ${lidDelay + 0.05 + i * 0.055}s, transform .5s cubic-bezier(.2,.9,.3,1) ${lidDelay + 0.05 + i * 0.055}s`;
+  $('#workGrid')?.addEventListener('click', (ev) => {
+    const pl = (ev.target as HTMLElement).closest<HTMLElement>('.plate');
+    if (pl) openProject(pl.getAttribute('data-id') ?? '');
   });
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      els.forEach((el) => {
-        el.style.opacity = '';
-        el.style.transform = el.style.transform.replace(' translateY(9px)', '');
-      });
-    });
+  $$<HTMLElement>('[data-close-modal]').forEach((x) => x.addEventListener('click', closeModal));
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && $('#modal')?.classList.contains('open')) closeModal();
   });
 }

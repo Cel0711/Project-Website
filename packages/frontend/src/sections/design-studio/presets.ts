@@ -1,5 +1,5 @@
 import type { PresetRegistry } from '@coreloop/shared';
-import { E } from '../engine/factory.js';
+import { E } from '../../engine/factory.js';
 
 export const PRESETS: PresetRegistry = {
   opsdash: { label: 'Ops dashboard', make: () => [

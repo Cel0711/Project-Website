@@ -1,0 +1,12 @@
+/* Section: What we build  (anchor #build)
+   Markup: what-we-build.html   Behaviour: index.ts */
+
+/* ============ capability cards ============ */
+.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden}
+.cap{background:var(--panel);padding:26px 24px 28px;display:grid;gap:9px;align-content:start}
+.cap:hover{background:var(--panel-2)}
+.cap-ic{width:34px;height:34px;display:grid;place-items:center;border-radius:var(--r-s);background:var(--brand-tint);color:var(--brand);margin-bottom:6px}
+.cap h3{font-size:16.5px;font-weight:600;letter-spacing:-.015em}
+.cap p{font-size:14px;color:var(--ink-2);line-height:1.5}
+.cap ul{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.cap li{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);border:1px solid var(--line);padding:2px 6px;border-radius:3px}

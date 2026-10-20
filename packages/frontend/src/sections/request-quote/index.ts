@@ -1,10 +1,13 @@
+// Section: Request a quote (#quote) — contact details, plan chooser and the quote form.
+// Markup: request-quote.html · Styles: request-quote.css · Form fields/plans: form.ts · Backend call: api-client.ts · No-backend fallback: fallback.ts
 import type { QuoteRequestPayload } from '@coreloop/shared';
-import { $, toast } from '../core/dom.js';
-import { CFG } from '../config.js';
+import { $, toast } from '../../core/dom.js';
+import { CFG } from '../../config.js';
 import { submitQuote } from './api-client.js';
 import { saveDesignFile } from './fallback.js';
 import { briefText, buildKinds, buildPlans, designPayload, readForm } from './form.js';
-import { updateAttachState } from '../studio/ui-utils.js';
+import { updateAttachState } from '../design-studio/ui-utils.js';
+import './request-quote.css';
 
 let lastBrief = '';
 let lastFile = '';

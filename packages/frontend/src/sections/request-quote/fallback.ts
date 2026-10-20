@@ -1,6 +1,6 @@
-import { toast } from '../core/dom.js';
-import { CFG } from '../config.js';
-import { S } from '../studio/state.js';
+import { toast } from '../../core/dom.js';
+import { CFG } from '../../config.js';
+import { S } from '../design-studio/state.js';
 import { designPayload } from './form.js';
 
 /**

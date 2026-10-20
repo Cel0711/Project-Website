@@ -1,9 +1,9 @@
 import type { DesignPayload, Plan, QuoteFormInput } from '@coreloop/shared';
-import { $, $$, esc, toast } from '../core/dom.js';
-import { CFG } from '../config.js';
-import { T } from '../renderers/registry.js';
-import { DEV, S } from '../studio/state.js';
-import { closeDrawers, updateAttachState } from '../studio/ui-utils.js';
+import { $, $$, esc, toast } from '../../core/dom.js';
+import { CFG } from '../../config.js';
+import { T } from '../../renderers/registry.js';
+import { DEV, S } from '../design-studio/state.js';
+import { closeDrawers, updateAttachState } from '../design-studio/ui-utils.js';
 
 export const KINDS = ['Custom software', 'Website', 'Android app', 'Automation', 'AI / knowledge', 'Dashboard', 'Point of sale', 'Integration', 'Not sure yet'];
 

@@ -1,6 +1,6 @@
 import type { ElementInstance } from '@coreloop/shared';
-import { $, $$, clamp, esc } from '../core/dom.js';
-import { boxCss, innerHtml, renderEl } from '../engine/factory.js';
+import { $, $$, clamp, esc } from '../../core/dom.js';
+import { boxCss, innerHtml, renderEl } from '../../engine/factory.js';
 import { buildInspector } from './inspector.js';
 import { saveLocal } from './persistence.js';
 import { cv, cvEmpty, cvWrap, DEV, findEl, pushUndo, S, selEl, snap, updateUndoBtns } from './state.js';

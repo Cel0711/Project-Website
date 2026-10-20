@@ -1,4 +1,4 @@
-import { $ } from '../core/dom.js';
+import { $ } from '../../core/dom.js';
 import { S } from './state.js';
 
 /** Small cross-cutting DOM helpers shared by the palette/inspector drawers, the toolbar and the quote form — kept dependency-free to avoid circular imports between those modules. */

@@ -1,6 +1,6 @@
 import type { ElementInstance } from '@coreloop/shared';
-import { $, $$, clamp, esc } from '../core/dom.js';
-import { T } from '../renderers/registry.js';
+import { $, $$, clamp, esc } from '../../core/dom.js';
+import { T } from '../../renderers/registry.js';
 import { refreshEl, renderCanvas, syncCvTheme, syncDevBtns, syncToggles, zoomFit } from './canvas.js';
 import { saveLocal } from './persistence.js';
 import { cv, DEV, pushUndo, S, selEl } from './state.js';

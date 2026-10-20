@@ -22,8 +22,10 @@ packages/
              QuoteRequestPayload, the /api/* contract) — the single source of truth
              for what crosses the frontend/backend boundary
   frontend/  Vite + vanilla TypeScript port of index.html: the ~50-renderer engine
-             (src/renderers/), the studio (src/studio/), the catalogue/quote/chrome
-             page wiring (src/page/, src/quote/), same CSS, same markup
+             (src/renderers/), one folder per page section (src/sections/ — what-we-build,
+             catalogue, design-studio, how-we-work, request-quote; each holds its own
+             markup, CSS, logic and data, see src/sections/README.md), page chrome
+             (src/page/), same CSS, same markup
   backend/   Express API, run under PM2 in production — receives quote submissions
              at POST /api/quotes, validates them against the shared zod schema, and
              persists them (JSON-file storage by default; swap the storage adapter

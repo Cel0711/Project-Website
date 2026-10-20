@@ -1,5 +1,5 @@
 import type { CanvasTheme, ElementInstance, SceneRegistry } from '@coreloop/shared';
-import { E } from '../engine/factory.js';
+import { E } from '../../engine/factory.js';
 
 export const CX = 208;
 export const CW = 1044;

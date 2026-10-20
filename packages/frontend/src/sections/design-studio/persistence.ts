@@ -1,5 +1,5 @@
 import type { StudioSnapshot } from '@coreloop/shared';
-import { $ } from '../core/dom.js';
+import { $ } from '../../core/dom.js';
 import { DEV, S } from './state.js';
 
 const STORAGE_KEY = 'cl_studio_v1';

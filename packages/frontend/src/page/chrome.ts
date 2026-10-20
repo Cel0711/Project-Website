@@ -1,7 +1,6 @@
 import { $, $$, esc } from '../core/dom.js';
 import { CFG } from '../config.js';
 import { fitAllStages } from '../engine/stage.js';
-import { closeModal, openProject } from './catalogue.js';
 
 export function applyBrand(): void {
   document.title = CFG.company + ' — custom software, automation and enterprise dashboards';
@@ -54,15 +53,6 @@ export function initChrome(): void {
       m.classList.remove('open');
       b?.setAttribute('aria-expanded', 'false');
     }
-  });
-
-  $('#workGrid')?.addEventListener('click', (ev) => {
-    const pl = (ev.target as HTMLElement).closest<HTMLElement>('.plate');
-    if (pl) openProject(pl.getAttribute('data-id') ?? '');
-  });
-  $$<HTMLElement>('[data-close-modal]').forEach((x) => x.addEventListener('click', closeModal));
-  document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape' && $('#modal')?.classList.contains('open')) closeModal();
   });
 
   let rt: ReturnType<typeof setTimeout>;

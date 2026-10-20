@@ -1,11 +1,15 @@
-import { $ } from '../core/dom.js';
-import { PRESETS } from '../content/presets.js';
+// Section: Design studio (#studio) — the drag-and-drop screen designer.
+// Markup: design-studio.html · Styles: design-studio.css · Element library: palette-data.ts · Starter layouts: presets.ts
+// Renders elements via the shared engine (src/engine, src/renderers), which this section does not own.
+import { $ } from '../../core/dom.js';
+import { PRESETS } from './presets.js';
 import { initCanvas, renderCanvas, syncCvTheme, syncDevBtns, syncToggles, zoomFit } from './canvas.js';
 import { initPalette } from './palette-ui.js';
 import { loadLocal } from './persistence.js';
 import { S, setCanvasRefs } from './state.js';
 import { initToolbar } from './toolbar.js';
 import { isNarrow } from './ui-utils.js';
+import './design-studio.css';
 
 export function initStudio(): void {
   const cv = $<HTMLElement>('#cv');

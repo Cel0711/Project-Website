@@ -1,5 +1,5 @@
 import { DEVICE_SIZES, type CanvasTheme, type DeviceKind, type ElementInstance, type InspectorTab } from '@coreloop/shared';
-import { $ } from '../core/dom.js';
+import { $ } from '../../core/dom.js';
 
 export const DEV = DEVICE_SIZES;
 
