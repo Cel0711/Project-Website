@@ -2,8 +2,8 @@ import { $, $$, esc } from '../core/dom.js';
 import { CFG } from '../config.js';
 import { fitAllStages } from '../engine/stage.js';
 
+/** Fills in the company name and contact details everywhere they appear. (The page title belongs to page/router.ts.) */
 export function applyBrand(): void {
-  document.title = CFG.company + ' — custom software, automation and enterprise dashboards';
   $$<HTMLElement>('.brand span').forEach((s) => {
     const small = s.querySelector('small');
     s.textContent = CFG.company;

@@ -15,7 +15,8 @@
     "@coreloop/shared": "*",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "node": "^26.12.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

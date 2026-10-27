@@ -23,7 +23,7 @@ def<MediaProps>('media', {
     if (v === 'barcode') {
       let bars = '';
       for (let b = 0; b < 48; b++) bars += '<span style="flex:' + (0.4 + r() * 1.6) + ';background:' + (b % 2 ? 'transparent' : 'var(--sc-text)') + '"></span>';
-      return '<div style="width:100%;height:100%;background:#fff;padding:8px;display:flex;flex-direction:column;gap:4px"><div style="flex:1;display:flex;gap:1px">' + bars + '</div><span style="text-align:center;font:400 9px/1 \'IBM Plex Mono\',monospace;color:#17242A">' + esc(e.p.label || '4 871 220 01984') + '</span></div>';
+      return '<div style="width:100%;height:100%;background:#fff;padding:8px;display:flex;flex-direction:column;gap:4px"><div style="flex:1;display:flex;gap:1px">' + bars + '</div><span style="text-align:center;font:400 9px/1 \'IBM Plex Mono\',monospace;color:#1B2128">' + esc(e.p.label || '4 871 220 01984') + '</span></div>';
     }
     if (v === 'logoGrid') {
       return '<div style="height:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--sc-line)">' + [0, 1, 2, 3, 4, 5].map(() =>
@@ -38,7 +38,7 @@ def<MediaProps>('media', {
         '<div style="flex:' + (i === 0 ? 2 : 1) + ';background:linear-gradient(' + (120 + i * 40) + 'deg,var(--sc-panel2),var(--sc-line));border-radius:6px"></div>',
       ).join('') + '</div>';
     }
-    const play = v === 'video' ? '<span style="position:absolute;inset:0;display:grid;place-items:center"><span style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center"><span style="width:0;height:0;border-left:13px solid #17242A;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px"></span></span></span>' : '';
+    const play = v === 'video' ? '<span style="position:absolute;inset:0;display:grid;place-items:center"><span style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center"><span style="width:0;height:0;border-left:13px solid #1B2128;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px"></span></span></span>' : '';
     return '<div style="position:relative;width:100%;height:100%;background:linear-gradient(135deg,var(--sc-panel2),var(--sc-line));display:grid;place-items:center">' +
       (v === 'image' ? '<svg width="34" height="34" viewBox="0 0 24 24" opacity=".45"><rect x="2.5" y="4.5" width="19" height="15" rx="2" stroke="var(--sc-mut)" stroke-width="1.4" fill="none"/><circle cx="8.5" cy="10" r="1.8" fill="var(--sc-mut)"/><path d="M4 17l4.5-4.5 3 3 3.5-3.5L20 17" stroke="var(--sc-mut)" stroke-width="1.4" fill="none"/></svg>' : '') + play +
       (e.p.label ? '<span style="position:absolute;left:8px;bottom:8px;font:500 10px/1 Archivo,sans-serif;color:var(--sc-text);background:var(--sc-panel);padding:3px 7px;border-radius:4px">' + esc(e.p.label) + '</span>' : '') + '</div>';

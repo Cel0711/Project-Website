@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Coreloop Systems — custom software, automation and enterprise dashboards</title>
+<title>Lab-Lace IT Software &amp; Solutions — custom software, automation and enterprise dashboards</title>
+<link rel="icon" type="image/png" href="/favicon.png">
 <meta name="description" content="We build custom software: AI automation, data centre configuration automation, BOM and report automation, ops dashboards, Android apps, enterprise web and point of sale. Design your own screen in our studio and send it to us for a quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,118 +12,141 @@
 </head>
 <body>
 
+<!-- Fixed backdrop for the Home page's animated rings (page/hero-bg.ts); empty on every other page. -->
+<div class="rings-bg" id="ringsBg" aria-hidden="true"></div>
+
 <nav class="nav">
   <div class="nav-in">
-    <a class="brand" href="#top" aria-label="Coreloop Systems, home">
-      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
-        <rect x=".5" y=".5" width="25" height="25" rx="5" fill="var(--ink)"/>
-        <circle cx="9" cy="9" r="3" fill="none" stroke="var(--signal)" stroke-width="1.8"/>
-        <circle cx="17.5" cy="17.5" r="3" fill="none" stroke="var(--signal)" stroke-width="1.8"/>
-        <path d="M11.6 10.8c2.4 1.2 3.2 2.4 4 4.2" stroke="var(--brand)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-        <path d="M9 12v2.6a2 2 0 0 0 2 2h3.2" stroke="#7E8D92" stroke-width="1.4" fill="none"/>
-      </svg>
-      <span>Coreloop<small>SYSTEMS / BUILD SHOP</small></span>
+    <a class="brand" href="#/" aria-label="Lab-Lace IT Software &amp; Solutions, home">
+      <img src="/lab-lace-emblem.png" alt="" width="32" height="38">
+      <span>Lab-Lace IT Software &amp; Solutions</span>
     </a>
     <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#studio">Design studio</a>
-      <a href="#build">What we build</a>
-      <a href="#process">How we work</a>
-      <a href="#quote">Contact</a>
+      <a href="#/" data-route="home">Home</a>
+      <a href="#/services" data-route="services">What we build</a>
+      <a href="#/work" data-route="work">Work</a>
+      <a href="#/studio" data-route="studio">Design studio</a>
+      <a href="#/process" data-route="process">How we work</a>
+      <a href="#/contact" data-route="contact">Contact</a>
     </div>
     <div class="nav-act">
       <button class="iconbtn" id="themeBtn" aria-label="Switch colour theme" title="Switch colour theme">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3.2"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9L13 13M13 3l-1.1 1.1M4.1 11.9L3 13"/></svg>
       </button>
-      <button class="iconbtn burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span>Menu</span>
         <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
       </button>
-      <a class="btn btn-hi" href="#quote">Get a quote</a>
+      <a class="btn btn-hi" href="#/contact">Get a quote</a>
     </div>
   </div>
   <div class="mobmenu" id="mobmenu">
-    <a href="#work">Work</a><a href="#studio">Design studio</a><a href="#build">What we build</a><a href="#process">How we work</a><a href="#quote">Contact</a>
+    <a href="#/" data-route="home">Home</a><a href="#/services" data-route="services">What we build</a><a href="#/work" data-route="work">Work</a><a href="#/studio" data-route="studio">Design studio</a><a href="#/process" data-route="process">How we work</a><a href="#/contact" data-route="contact">Contact</a>
+    <a class="btn btn-hi" href="#/contact">Get a quote</a>
   </div>
 </nav>
 
 <main id="top">
 
-<header class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="tag"><i></i>Taking projects for Q4 2026</span>
-      <h1 class="d1" style="margin-top:16px">Software built around how your operation actually runs.</h1>
-      <p class="lead">We are a small build shop for custom software: AI automation, data centre and BOM process automation, ticketing, ops dashboards, Android apps, enterprise web and point of sale. One team, from the first workshop to the system your staff open every morning.</p>
-      <div class="hero-cta">
-        <a class="btn btn-hi btn-lg" href="#studio">Design your screen</a>
-        <a class="btn btn-line btn-lg" href="#work">See 15 builds</a>
+<!-- Pages: exactly one is visible at a time; src/page/router.ts reads the URL hash (#/work, #/studio, …). -->
+
+<div class="page" data-page="home">
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag"><i></i>Taking projects for Q4 2026</span>
+        <h1 class="d1" style="margin-top:16px">Software built around how your operation actually runs.</h1>
+        <p class="lead">We are a small build shop for custom software: AI automation, data centre and BOM process automation, ticketing, ops dashboards, Android apps, enterprise web and point of sale. One team, from the first workshop to the system your staff open every morning.</p>
+        <div class="hero-cta">
+          <a class="btn btn-hi btn-lg" href="#/studio">Design your screen</a>
+          <a class="btn btn-line btn-lg" href="#/work">See 15 builds</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>15</b><span class="xs">systems shipped</span></div>
+          <div><b>6</b><span class="xs">industries served</span></div>
+          <div><b>2&ndash;10</b><span class="xs">weeks to first release</span></div>
+        </div>
       </div>
-      <div class="hero-meta">
-        <div><b>15</b><span class="xs">systems shipped</span></div>
-        <div><b>6</b><span class="xs">industries served</span></div>
-        <div><b>2&ndash;10</b><span class="xs">weeks to first release</span></div>
-      </div>
-    </div>
-    <figure class="hero-fig" aria-label="Example of an operations dashboard we build">
-      <div class="laptop">
-        <div class="laptop-lid">
-          <div class="laptop-lid-back"></div>
-          <div class="laptop-bezel">
-            <i class="laptop-cam"></i>
-            <div id="heroShot" class="m-shot laptop-screen"></div>
+      <figure class="hero-fig" data-intro="pre" aria-label="Example of an operations dashboard we build">
+        <!-- A real 3D model (see "hero laptop" in main.css): the rig is turned to show the laptop's side; the lid
+             is a thick slab hinged on the base, and the screen is its front face. -->
+        <div class="laptop">
+          <div class="laptop-rig">
+            <div class="laptop-lid">
+              <div class="ll-edge ll-top"></div>
+              <div class="ll-edge ll-left"></div>
+              <div class="ll-edge ll-right"></div>
+              <div class="laptop-lid-back"></div>
+              <div class="laptop-bezel">
+                <i class="laptop-cam"></i>
+                <div id="heroShot" class="m-shot laptop-screen"></div>
+                <span class="laptop-glass" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="laptop-base" aria-hidden="true">
+              <div class="lb-shadow"></div>
+              <div class="lb-face lb-left"></div>
+              <div class="lb-face lb-right"></div>
+              <div class="lb-face lb-front"></div>
+              <div class="lb-top"><i class="lb-keys"></i><i class="lb-pad"></i></div>
+            </div>
           </div>
         </div>
-        <div class="laptop-hinge"></div>
-        <div class="laptop-deck"><span class="laptop-trackpad"></span></div>
-      </div>
-      <figcaption class="xs" style="margin-top:10px;display:flex;gap:8px;align-items:center">
-        <span class="mono" style="color:var(--brand)">WRK-07</span> Operations command dashboard &mdash; one of the builds in the catalogue below.
-      </figcaption>
-    </figure>
-  </div>
-</header>
+        <figcaption class="xs" style="margin-top:10px;display:flex;gap:8px;align-items:center">
+          <span class="mono" style="color:var(--brand)">WRK-07</span> Operations command dashboard &mdash; one of the builds in the catalogue below.
+        </figcaption>
+      </figure>
+    </div>
+  </header>
 
-<hr class="rule">
+  <!-- @include src/sections/home-previews/home-previews.html -->
+  <!-- @include src/sections/cta-band/cta-band.html -->
+</div>
 
-<!-- @include src/sections/what-we-build/what-we-build.html -->
+<div class="page" data-page="services" hidden>
+  <!-- @include src/sections/what-we-build/what-we-build.html -->
+  <!-- @include src/sections/cta-band/cta-band.html -->
+</div>
 
-<hr class="rule">
+<div class="page" data-page="work" hidden>
+  <!-- @include src/sections/catalogue/catalogue.html -->
+  <!-- @include src/sections/cta-band/cta-band.html -->
+</div>
 
-<!-- @include src/sections/catalogue/catalogue.html -->
+<div class="page" data-page="studio" hidden>
+  <!-- @include src/sections/design-studio/design-studio.html -->
+  <!-- @include src/sections/cta-band/cta-band.html -->
+</div>
 
-<!-- @include src/sections/design-studio/design-studio.html -->
+<div class="page" data-page="process" hidden>
+  <!-- @include src/sections/how-we-work/how-we-work.html -->
+  <!-- @include src/sections/cta-band/cta-band.html -->
+</div>
 
-<!-- @include src/sections/how-we-work/how-we-work.html -->
-
-<hr class="rule">
-
-<!-- @include src/sections/request-quote/request-quote.html -->
+<div class="page" data-page="contact" hidden>
+  <!-- @include src/sections/request-quote/request-quote.html -->
+</div>
 
 <footer>
   <div class="wrap">
     <div class="f-grid">
       <div>
         <div class="brand" style="margin-bottom:12px">
-          <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
-            <rect x=".5" y=".5" width="25" height="25" rx="5" fill="#0F191C"/>
-            <circle cx="9" cy="9" r="3" fill="none" stroke="#FFC41F" stroke-width="1.8"/>
-            <circle cx="17.5" cy="17.5" r="3" fill="none" stroke="#FFC41F" stroke-width="1.8"/>
-            <path d="M11.6 10.8c2.4 1.2 3.2 2.4 4 4.2" stroke="#3CBFA6" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          </svg>
-          <span>Coreloop<small>SYSTEMS / BUILD SHOP</small></span>
+          <img src="/lab-lace-emblem.png" alt="" width="32" height="38">
+          <span>Lab-Lace IT Software &amp; Solutions</span>
         </div>
-        <p style="font-size:14px;color:#A9BAB8;max-width:36ch">Custom software, automation and enterprise interfaces. Built by the people you talk to.</p>
+        <p style="font-size:14px;color:#AEB5BD;max-width:36ch">Custom software, automation and enterprise interfaces. Built by the people you talk to.</p>
       </div>
       <div><h4>Work</h4><ul id="fWork"></ul></div>
       <div><h4>Pages</h4><ul>
-        <li><a href="#build">What we build</a></li><li><a href="#work">Catalogue</a></li><li><a href="#studio">Design studio</a></li><li><a href="#process">How we work</a></li><li><a href="#quote">Request a quote</a></li>
+        <li><a href="#/">Home</a></li><li><a href="#/services">What we build</a></li><li><a href="#/work">Catalogue</a></li><li><a href="#/studio">Design studio</a></li><li><a href="#/process">How we work</a></li><li><a href="#/contact">Request a quote</a></li>
       </ul></div>
       <div><h4>Contact</h4><ul>
-        <li><a href="#" id="fMail">hello@example.com</a></li><li>Replies within 1 business day</li><li>Remote, worldwide</li>
+        <li><a href="#" id="fMail">info@lablace.com</a></li><li>Replies within 1 business day</li><li>Remote, worldwide</li>
       </ul></div>
     </div>
     <div class="f-bot">
-      <span>&copy; <span id="yr">2026</span> Coreloop Systems. All rights reserved.</span>
+      <span>&copy; <span id="yr">2026</span> Lab-Lace IT Software &amp; Solutions. All rights reserved.</span>
       <span class="mono">Screens on this page are drawn live in your browser</span>
     </div>
   </div>
@@ -134,6 +158,8 @@
 
 <div id="toast" role="status" aria-live="polite"></div>
 
+<script src="/vendor/three.r134.min.js"></script>
+<script src="/vendor/vanta.rings.min.js"></script>
 <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

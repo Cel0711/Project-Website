@@ -1,6 +1,7 @@
 import type { DesignPayload, Plan, QuoteFormInput } from '@coreloop/shared';
 import { $, $$, esc, toast } from '../../core/dom.js';
 import { CFG } from '../../config.js';
+import { navigate } from '../../page/router.js';
 import { T } from '../../renderers/registry.js';
 import { DEV, S } from '../design-studio/state.js';
 import { closeDrawers, updateAttachState } from '../design-studio/ui-utils.js';
@@ -73,8 +74,7 @@ export function goQuote(): void {
   if (a && S.els.length) a.checked = true;
   updateAttachState();
   closeDrawers();
-  const q = $<HTMLElement>('#quote');
-  if (q) q.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  navigate('contact'); // the quote form is its own page now
   setTimeout(() => {
     const n = $<HTMLInputElement>('#qName');
     if (n && !n.value) n.focus({ preventScroll: true });

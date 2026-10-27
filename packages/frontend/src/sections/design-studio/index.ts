@@ -1,4 +1,4 @@
-// Section: Design studio (#studio) — the drag-and-drop screen designer.
+// Section: Design studio (page #/studio) — the drag-and-drop screen designer.
 // Markup: design-studio.html · Styles: design-studio.css · Element library: palette-data.ts · Starter layouts: presets.ts
 // Renders elements via the shared engine (src/engine, src/renderers), which this section does not own.
 import { $ } from '../../core/dom.js';

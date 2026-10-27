@@ -15,5 +15,5 @@ export function isNarrow(): boolean {
 export function updateAttachState(): void {
   const n = $<HTMLElement>('#attachState');
   if (!n) return;
-  n.textContent = S.els.length ? `${S.els.length} elements on your ${S.dev} canvas will be attached` : 'Nothing drawn yet — the studio above is optional.';
+  n.textContent = S.els.length ? `${S.els.length} elements on your ${S.dev} canvas will be attached` : 'Nothing drawn yet — the design studio is optional.';
 }
