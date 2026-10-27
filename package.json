@@ -2,7 +2,7 @@
   "name": "coreloop-site-monorepo",
   "private": true,
   "version": "1.0.0",
-  "description": "TypeScript rewrite of the Coreloop Systems site: shared domain model, Vite frontend, Express/PM2 backend.",
+  "description": "TypeScript rewrite of the Lab-Lace IT Software & Solutions site: shared domain model, Vite frontend, Express/PM2 backend.",
   "workspaces": [
     "packages/shared",
     "packages/backend",

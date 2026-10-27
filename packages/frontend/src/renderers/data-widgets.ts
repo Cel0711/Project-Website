@@ -194,7 +194,7 @@ def<CodeBlockProps>('codeBlock', {
     const sets: Record<CodeVariant, string[]> = {
       logs: ['04:00:01 INFO  start job=bom-sync id=2041', '04:00:02 INFO  fetched 1,284 rows from ERP', '04:00:04 WARN  3 parts missing unit cost', '04:00:06 INFO  cost roll-up complete', '04:00:06 INFO  notified 4 subscribers', '04:00:07 INFO  done in 6.2s'],
       code: ['async function rollUp(bomId) {', '  const parts = await erp.parts(bomId);', '  const missing = parts.filter(p => !p.cost);', '  if (missing.length) await notify(missing);', '  return sum(parts, p => p.qty * p.cost);', '}'],
-      terminal: ['$ coreloop deploy --site kl1', '✓ validated 42 config templates', '✓ pushed to 184 racks', '! 1 rack needs manual review', '✓ done in 1m 12s'],
+      terminal: ['$ lablace deploy --site kl1', '✓ validated 42 config templates', '✓ pushed to 184 racks', '! 1 rack needs manual review', '✓ done in 1m 12s'],
       yaml: ['site: kl1', 'racks: 184', 'templates:', '  - switch-leaf-v3', '  - pdu-standard', 'validate: strict'],
     };
     const it = custom.length ? custom : sets[v] || sets.logs;
@@ -244,7 +244,7 @@ def<WizardProps>('wizard', {
     return '<div style="height:100%;display:flex;align-items:center">' + st.map((s, i) => {
       const done = i < at - 1, cur = i === at - 1;
       return '<div style="flex:1;display:flex;align-items:center;gap:7px;min-width:0">' +
-        '<span style="width:22px;height:22px;flex:none;border-radius:50%;display:grid;place-items:center;font:600 10px/1 Archivo,sans-serif;background:' + (done ? 'var(--sc-brand)' : cur ? 'var(--sc-accent)' : 'var(--sc-panel2)') + ';color:' + (done ? '#fff' : cur ? '#17242A' : 'var(--sc-mut)') + ';border:1.5px solid ' + (done ? 'var(--sc-brand)' : cur ? 'var(--sc-accent)' : 'var(--sc-line)') + '">' + (done ? '✓' : i + 1) + '</span>' +
+        '<span style="width:22px;height:22px;flex:none;border-radius:50%;display:grid;place-items:center;font:600 10px/1 Archivo,sans-serif;background:' + (done ? 'var(--sc-brand)' : cur ? 'var(--sc-accent)' : 'var(--sc-panel2)') + ';color:' + (done ? '#fff' : cur ? '#1B2128' : 'var(--sc-mut)') + ';border:1.5px solid ' + (done ? 'var(--sc-brand)' : cur ? 'var(--sc-accent)' : 'var(--sc-line)') + '">' + (done ? '✓' : i + 1) + '</span>' +
         '<span style="font:' + (cur ? 600 : 400) + ' 10.5px/1.2 Archivo,sans-serif;color:' + (cur ? 'var(--sc-text)' : 'var(--sc-mut)') + ';overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(s) + '</span>' +
         (i < st.length - 1 ? '<span style="flex:1;min-width:8px;height:1.5px;background:' + (done ? 'var(--sc-brand)' : 'var(--sc-line)') + '"></span>' : '') + '</div>';
     }).join('') + '</div>';
@@ -265,7 +265,7 @@ def<PricingProps>('pricing', {
       '<div style="display:flex;flex-direction:column;gap:7px;margin-top:2px">' + lines(e.p.items).map((s) =>
         '<div style="display:flex;gap:7px;font:400 11px/1.4 Archivo,sans-serif;color:var(--sc-text)"><svg width="11" height="11" viewBox="0 0 12 12" style="flex:none;margin-top:3px"><path d="M2 6.4l2.6 2.6L10 3.4" stroke="var(--sc-brand)" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg><span>' + esc(s) + '</span></div>',
       ).join('') + '</div>' +
-      '<div style="margin-top:auto;background:' + (f ? 'var(--sc-accent)' : 'var(--sc-panel2)') + ';color:' + (f ? '#17242A' : 'var(--sc-text)') + ';border:1px solid ' + (f ? 'var(--sc-accent)' : 'var(--sc-line)') + ';border-radius:6px;padding:9px;text-align:center;font:600 11.5px/1 Archivo,sans-serif">' + esc(e.p.cta) + '</div></div>';
+      '<div style="margin-top:auto;background:' + (f ? 'var(--sc-accent)' : 'var(--sc-panel2)') + ';color:' + (f ? '#1B2128' : 'var(--sc-text)') + ';border:1px solid ' + (f ? 'var(--sc-accent)' : 'var(--sc-line)') + ';border-radius:6px;padding:9px;text-align:center;font:600 11.5px/1 Archivo,sans-serif">' + esc(e.p.cta) + '</div></div>';
   },
 });
 

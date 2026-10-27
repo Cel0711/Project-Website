@@ -172,7 +172,7 @@ def<BtnProps>('btn', {
     const v = e.p.variant;
     let bg = 'var(--sc-brand)', fg = '#fff', bd = 'transparent';
     const rad = v === 'pill' ? 100 : 6;
-    if (v === 'accent') { bg = 'var(--sc-accent)'; fg = '#17242A'; }
+    if (v === 'accent') { bg = 'var(--sc-accent)'; fg = '#1B2128'; }
     if (v === 'secondary') { bg = 'transparent'; fg = 'var(--sc-text)'; bd = 'var(--sc-line)'; }
     if (v === 'ghost') { bg = 'transparent'; fg = 'var(--sc-brand)'; }
     if (v === 'danger') { bg = 'var(--sc-bad)'; }
@@ -205,7 +205,7 @@ def<FabProps>('fab', {
   p: { icon: '+' },
   fields: [['icon', 'Icon/emoji', 'text']],
   make(e) {
-    return '<div style="width:100%;height:100%;border-radius:100px;background:var(--sc-accent);color:#17242A;display:grid;place-items:center;font:600 22px/1 Archivo,sans-serif">' + esc(e.p.icon) + '</div>';
+    return '<div style="width:100%;height:100%;border-radius:100px;background:var(--sc-accent);color:#1B2128;display:grid;place-items:center;font:600 22px/1 Archivo,sans-serif">' + esc(e.p.icon) + '</div>';
   },
 });
 
@@ -216,7 +216,7 @@ def<CtaBarProps>('ctaBar', {
   fields: [['title', 'Message', 'text'], ['label', 'Button', 'text']],
   make(e) {
     return '<div style="height:100%;display:flex;align-items:center;gap:14px">' +
-      '<b style="font:600 15px/1.3 Archivo,sans-serif;color:#F1F2EE;flex:1">' + esc(e.p.title) + '</b>' +
-      '<span style="background:var(--sc-accent);color:#17242A;padding:9px 15px;border-radius:6px;font:600 12.5px/1 Archivo,sans-serif;white-space:nowrap">' + esc(e.p.label) + '</span></div>';
+      '<b style="font:600 15px/1.3 Archivo,sans-serif;color:#F3F4F6;flex:1">' + esc(e.p.title) + '</b>' +
+      '<span style="background:var(--sc-accent);color:#1B2128;padding:9px 15px;border-radius:6px;font:600 12.5px/1 Archivo,sans-serif;white-space:nowrap">' + esc(e.p.label) + '</span></div>';
   },
 });

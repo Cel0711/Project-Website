@@ -1,0 +1,7 @@
+/* Section: Quote band  (closes every page except Contact)
+   Markup: cta-band.html   No script: its button is a plain link to #/contact. */
+
+/* ============ quote band ============ */
+.ctaband{background:linear-gradient(180deg,var(--paper),var(--paper-2));border-top:1px solid var(--line);padding:clamp(40px,6vw,72px) 0}
+.ctaband-in{display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,4vw,48px);flex-wrap:wrap}
+.ctaband-in>div{display:grid;gap:12px;max-width:62ch}

@@ -233,8 +233,8 @@ def<BannerProps>('banner', {
     const dark = v === 'toast';
     return '<div style="height:100%;display:flex;align-items:center;gap:10px;background:' + (dark ? 'var(--sc-dark)' : 'color-mix(in srgb,' + c + ' 12%,transparent)') + ';border:1px solid ' + (dark ? 'transparent' : 'color-mix(in srgb,' + c + ' 35%,transparent)') + ';border-radius:7px;padding:0 12px;margin:-12px">' +
       '<span style="width:20px;height:20px;border-radius:50%;background:' + c + ';color:#fff;display:grid;place-items:center;font:700 12px/1 Archivo,sans-serif;flex:none">' + g + '</span>' +
-      '<div style="min-width:0"><div style="font:600 12px/1.25 Archivo,sans-serif;color:' + (dark ? '#F1F2EE' : 'var(--sc-text)') + ';overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(e.p.title) + '</div>' +
-      (e.p.sub ? '<div style="font:400 10.5px/1.3 Archivo,sans-serif;color:' + (dark ? '#A9BAB8' : 'var(--sc-mut)') + '">' + esc(e.p.sub) + '</div>' : '') + '</div></div>';
+      '<div style="min-width:0"><div style="font:600 12px/1.25 Archivo,sans-serif;color:' + (dark ? '#F3F4F6' : 'var(--sc-text)') + ';overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(e.p.title) + '</div>' +
+      (e.p.sub ? '<div style="font:400 10.5px/1.3 Archivo,sans-serif;color:' + (dark ? '#AEB5BD' : 'var(--sc-mut)') + '">' + esc(e.p.sub) + '</div>' : '') + '</div></div>';
   },
 });
 

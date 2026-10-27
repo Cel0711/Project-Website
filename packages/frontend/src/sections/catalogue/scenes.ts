@@ -201,12 +201,12 @@ scene('reports', 'light', () => [
   E('wizard', CX, 140, 624, 74, { steps: 'Pull data\nBuild pages\nCheck totals\nSend', at: 3 }),
   E('badge', CX + 640, 148, 404, 32, { items: 'Next run 01 Oct 06:00:info\nLast run clean:ok', variant: 'pill' }),
   E('panel', CX, 230, 400, 554, { pattern: 'none' }, { fill: '#FFFFFF', radius: 4, bw: 1, shadow: 'md' }),
-  E('txt', CX + 28, 258, 260, 26, { text: 'Operations pack', size: 17, weight: 700, color: '#17242A' }),
-  E('txt', CX + 28, 286, 300, 16, { text: 'September 2026 · prepared automatically', size: 10, weight: 400, color: '#6C7B80' }),
+  E('txt', CX + 28, 258, 260, 26, { text: 'Operations pack', size: 17, weight: 700, color: '#1B2128' }),
+  E('txt', CX + 28, 286, 300, 16, { text: 'September 2026 · prepared automatically', size: 10, weight: 400, color: '#727B85' }),
   E('divider', CX + 28, 310, 344, 12, { style: 'solid' }),
   E('chart', CX + 28, 328, 344, 150, { variant: 'bar', title: 'Units shipped by week', points: 13, seed: 91 }, { bw: 0, pad: 0, fill: 'transparent' }),
   E('table', CX + 28, 490, 344, 170, { kind: 'orders', rows: 4, title: 'Top accounts' }, { bw: 1, fill: '#FFFFFF' }),
-  E('txt', CX + 28, 676, 344, 80, { text: 'Notes: scrap rate improved for the third month. Two supplier price increases land in October and are already in the cost model.', size: 10, weight: 400, color: '#4B5C62', lh: 1.5 }),
+  E('txt', CX + 28, 676, 344, 80, { text: 'Notes: scrap rate improved for the third month. Two supplier price increases land in October and are already in the cost model.', size: 10, weight: 400, color: '#505A64', lh: 1.5 }),
   E('listRows', CX + 416, 230, 308, 268, { variant: 'files', title: 'Archive' }),
   E('choice', CX + 740, 230, 304, 268, { variant: 'toggleRow', items: 'Board pack (PDF)\nSite managers (PDF)\nFinance (XLSX)\nSupply chain (CSV)\nRaw data (API)', on: 4 }),
   E('calendar', CX + 416, 514, 308, 270, { variant: 'month', title: 'Send calendar', mark: '1,8,15,22,29' }),
@@ -234,7 +234,7 @@ scene('web', 'light', () => {
 
 /* WRK-14 — Enterprise GUI / UI / UX system */
 scene('designsys', 'light', () => {
-  const sw = ['#0F5C52', '#3CBFA6', '#FFC41F', '#1D5B98', '#C93F16', '#1C7A49', '#17242A', '#D4D9D1'];
+  const sw = ['#5E6A76', '#C5CBD3', '#FFC41F', '#1D5B98', '#C93F16', '#1C7A49', '#1B2128', '#D8DBE0'];
   const els: ElementInstance[] = [
     E('shell', 0, 0, 1280, 800, { variant: 'both', title: 'Design system', nav: 'Foundations\nComponents\nPatterns\nAccessibility\nReleases', user: 'Design' }),
     ...H('Northwind interface system v4', 68, 'One kit, used by nine product teams — no more screens that disagree'),

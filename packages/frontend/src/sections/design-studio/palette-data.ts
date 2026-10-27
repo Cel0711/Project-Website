@@ -11,7 +11,7 @@ export const PAL: PaletteEntry[] = [
   ['Layout', 'Panel, grid', 'panel', 420, 260, { pattern: 'grid' }],
   ['Layout', 'Panel, lines', 'panel', 420, 260, { pattern: 'lines' }],
   ['Layout', 'Panel, glow', 'panel', 420, 260, { pattern: 'glow' }],
-  ['Layout', 'Gradient panel', 'panel', 420, 260, { pattern: 'none' }, { grad: 1, fill: '#0F5C52', fill2: '#17242A' }],
+  ['Layout', 'Gradient panel', 'panel', 420, 260, { pattern: 'none' }, { grad: 1, fill: '#5E6A76', fill2: '#1B2128' }],
   ['Layout', 'Card', 'card', 280, 170, {}],
   ['Layout', 'Card, wide', 'card', 520, 150, { title: 'Summary', sub: 'This period', body: 'A short paragraph of supporting detail.' }],
   ['Layout', 'App shell', 'shell', 1000, 620, { variant: 'both' }],

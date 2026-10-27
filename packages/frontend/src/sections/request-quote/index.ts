@@ -1,4 +1,4 @@
-// Section: Request a quote (#quote) — contact details, plan chooser and the quote form.
+// Section: Request a quote (page #/contact) — contact details, plan chooser and the quote form.
 // Markup: request-quote.html · Styles: request-quote.css · Form fields/plans: form.ts · Backend call: api-client.ts · No-backend fallback: fallback.ts
 import type { QuoteRequestPayload } from '@coreloop/shared';
 import { $, toast } from '../../core/dom.js';

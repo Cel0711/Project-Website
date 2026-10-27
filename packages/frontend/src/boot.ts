@@ -1,38 +1,67 @@
 import { $ } from './core/dom.js';
 import { fitAllStages } from './engine/stage.js';
 
-// Page chrome that belongs to no single section: nav, theme toggle, hero, footer.
+// Page chrome that belongs to no single section: nav + theme toggle, hero, footer, and the router that shows one page at a time.
 import { applyBrand, initChrome } from './page/chrome.js';
-import { buildHero } from './page/hero.js';
+import { buildHero, playHeroIntro } from './page/hero.js';
+import { startHeroBg, stopHeroBg } from './page/hero-bg.js';
 import { buildFooterLinks } from './page/footer.js';
+import { initRouter, navigate, onEnter, onLeave, onRoute, replaceRoute } from './page/router.js';
 
 // One folder per page section — see src/sections/README.md.
 import { buildCaps } from './sections/what-we-build/index.js';
-import { closeModal, initCatalogue } from './sections/catalogue/index.js';
+import { closeModal, initCatalogue, openProject } from './sections/catalogue/index.js';
+import { initHomePreviews } from './sections/home-previews/index.js';
 import { initStudio } from './sections/design-studio/index.js';
+import { zoomFit } from './sections/design-studio/canvas.js';
+import { updateAttachState } from './sections/design-studio/ui-utils.js';
 import { loadBuild } from './sections/design-studio/palette-ui.js';
 import './sections/how-we-work/index.js';
 import { initQuote } from './sections/request-quote/index.js';
+import './sections/cta-band/index.js';
 
 function boot(): void {
   applyBrand();
-  buildCaps(); //       What we build   → sections/what-we-build
-  initCatalogue(); //   Catalogue       → sections/catalogue
+  buildCaps(); //         What we build   → sections/what-we-build  (page #/services)
+  initCatalogue(); //     Catalogue       → sections/catalogue      (page #/work)
   buildFooterLinks();
   initChrome();
   buildHero();
-  initStudio(); //      Design studio   → sections/design-studio
-  initQuote(); //       Request a quote → sections/request-quote
-  //                    How we work     → sections/how-we-work (static, nothing to start)
+  initHomePreviews(); //  Home previews   → sections/home-previews  (page #/)
+  initStudio(); //        Design studio   → sections/design-studio  (page #/studio)
+  initQuote(); //         Request a quote → sections/request-quote  (page #/contact)
+  //                      How we work     → sections/how-we-work    (page #/process, static, nothing to start)
 
   // Glue between two sections: the catalogue modal's "Open this in the studio" button.
   $('#mOpen')?.addEventListener('click', function (this: HTMLElement) {
     const k = this.getAttribute('data-scene');
     closeModal();
     if (k) loadBuild(k);
-    $('#studio')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    navigate('studio');
   });
 
+  // Pages that are hidden while the site loads measure 0px wide, so anything sized from its container
+  // (rendered screens, the studio canvas) is fitted again whenever a page is shown.
+  onEnter('*', () => {
+    fitAllStages();
+    requestAnimationFrame(fitAllStages);
+  });
+  onEnter('studio', () => zoomFit());
+  onEnter('contact', () => updateAttachState());
+  // The laptop opens (and the rings start) every time Home is shown; nothing runs for a hidden page.
+  onEnter('home', () => {
+    playHeroIntro();
+    startHeroBg();
+  });
+  onLeave('home', () => stopHeroBg());
+  // #/work/WRK-07 shows that build's detail modal over the catalogue; any other route closes it.
+  onRoute((route) => {
+    if (route.page === 'work' && route.param) {
+      if (!openProject(route.param)) replaceRoute('work');
+    } else closeModal();
+  });
+
+  initRouter(); // last: its first render runs the hooks above
   setTimeout(fitAllStages, 200);
 }
 

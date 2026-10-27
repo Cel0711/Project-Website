@@ -29,6 +29,6 @@ export const env: AppEnv = {
   corsOrigins: parseOrigins(process.env.CORS_ORIGIN),
   storageDriver: parseStorageDriver(process.env.STORAGE_DRIVER),
   dataDir: process.env.DATA_DIR || './data',
-  notifyEmail: process.env.NOTIFY_EMAIL || 'hello@example.com',
+  notifyEmail: process.env.NOTIFY_EMAIL || 'info@lablace.com',
   adminToken: process.env.ADMIN_TOKEN || null,
 };
