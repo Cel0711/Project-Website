@@ -92,14 +92,14 @@ Open `index.html` in any text editor and find the config block at **line 716**
 ```js
 var CFG = {
   company: 'Lab-Lace IT Software & Solutions',
-  email:   'info@lablace.com',     // placeholder — where quote requests go
+  email:   'contact.support@lablace.com',     // placeholder — where quote requests go
   plans: [ ... ]                    // the four plan cards
 };
 ```
 
 `company` drives the nav, the footer, the browser tab title and the subject line of
 every quote email. `email` drives the contact block, the footer link and the `mailto:`
-that carries a request to you. `info@lablace.com` is a reserved address, so nothing
+that carries a request to you. `contact.support@lablace.com` is a reserved address, so nothing
 gets misdirected while it is still unchanged — but a real address is required before
 you share the site.
 

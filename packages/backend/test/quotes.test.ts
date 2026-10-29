@@ -56,7 +56,7 @@ describe('sending a request', () => {
     expect(q.conversationId).toBeTruthy();
     // the client is thanked, the team inbox and every Admin are told
     expect(h.mailer.to('ana@example.com').some((m) => m.subject.includes(q.ref))).toBe(true);
-    expect(h.mailer.to('info@lablace.com').some((m) => m.subject.includes(q.ref))).toBe(true);
+    expect(h.mailer.to('contact.support@lablace.com').some((m) => m.subject.includes(q.ref))).toBe(true);
     const bell = await admin.agent.get('/api/notifications');
     expect(bell.body.items.some((n: { title: string }) => n.title.includes(q.ref))).toBe(true);
   });
