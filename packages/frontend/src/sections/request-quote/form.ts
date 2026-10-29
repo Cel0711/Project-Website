@@ -14,6 +14,7 @@ let pickedPlan: string | null = null;
 export function buildKinds(): void {
   const h = $<HTMLElement>('#qKind');
   if (!h) return;
+  for (const k of Object.keys(picked)) delete picked[k]; // a fresh form (the portal re-creates it) starts with nothing picked
   h.innerHTML = KINDS.map((k) => `<button class="pick" type="button" data-k="${esc(k)}" aria-pressed="false">${esc(k)}</button>`).join('');
   h.addEventListener('click', (ev) => {
     const b = (ev.target as HTMLElement).closest<HTMLElement>('.pick');

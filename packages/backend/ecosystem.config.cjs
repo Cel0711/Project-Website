@@ -6,15 +6,17 @@
 //
 // CommonJS on purpose: PM2's config loader expects `module.exports` even
 // though the backend package itself is "type": "module".
+//
+// Settings (DATABASE_URL, SMTP_*, APP_URL, ...) come from packages/backend/.env, which the app
+// loads itself, so no secrets live in this file.
 module.exports = {
   apps: [
     {
       name: 'coreloop-api',
       cwd: __dirname,
       script: 'dist/index.js',
-      // Single instance: the default json-file storage driver serialises
-      // writes in-process, which only holds true within one process. Swap
-      // in a real database before scaling this to `instances: 'max'`.
+      // Single instance on purpose: live chat updates (Server-Sent Events) and the rate limiter keep
+      // their state in this process's memory. To scale out, move both to Postgres LISTEN/NOTIFY first.
       instances: 1,
       exec_mode: 'fork',
       env: {

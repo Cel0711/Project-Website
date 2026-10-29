@@ -7,16 +7,22 @@ const app = createApp();
 const server = app.listen(env.port, () => {
   logger.info('coreloop-api listening', {
     port: env.port,
-    storageDriver: env.storageDriver,
+    env: env.nodeEnv,
+    database: env.databaseUrl ? 'configured' : 'NOT configured (set DATABASE_URL)',
+    schema: env.dbSchema ?? 'public',
+    email: env.smtp ? 'smtp' : 'off (SMTP not configured)',
     corsOrigins: env.corsOrigins,
-    adminEnabled: !!env.adminToken,
+    appUrl: env.appUrl,
   });
 });
 
 function shutdown(signal: string): void {
   logger.info('shutting down', { signal });
-  server.close(() => process.exit(0));
-  // PM2 sends SIGINT on stop/restart; force-exit if close hangs.
+  server.close(() => {
+    const close = app.locals['close'] as (() => Promise<void>) | undefined;
+    (close ? close() : Promise.resolve()).finally(() => process.exit(0));
+  });
+  // PM2 sends SIGINT on stop/restart; force-exit if close hangs (open event streams keep the server alive).
   setTimeout(() => process.exit(1), 10_000).unref();
 }
 

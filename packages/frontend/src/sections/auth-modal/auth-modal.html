@@ -1,0 +1,122 @@
+<div class="modal auth" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal-bg" data-auth-close></div>
+  <div class="modal-card auth-card">
+    <button class="iconbtn modal-x" type="button" data-auth-close aria-label="Close">
+      <svg width="15" height="15" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>
+    </button>
+
+    <h2 class="auth-title" id="authTitle">Great to have you back!</h2>
+    <p class="auth-ctx" data-ctx hidden></p>
+
+    <!-- Shared by Sign in and Create account. Google is connected later; until then each button says so. -->
+    <div class="auth-social" data-social>
+      <button class="auth-sbtn" type="button" data-provider="google">
+        <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        <span>Continue with Google</span>
+      </button>
+      <button class="auth-sbtn" type="button" data-provider="apple">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+        <span>Continue with Apple</span>
+      </button>
+      <button class="auth-sbtn" type="button" data-provider="facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+        <span>Continue with Facebook</span>
+      </button>
+    </div>
+
+    <!-- Sign in -->
+    <section class="auth-view" data-view="signin">
+      <form class="auth-form" data-form="signin" novalidate>
+        <div class="auth-field">
+          <div class="auth-lbl"><label for="siId">Username or Email</label><a href="#" data-go="remind">Remind me</a></div>
+          <input id="siId" name="identifier" autocomplete="username" autocapitalize="off" spellcheck="false" required>
+          <p class="auth-err" data-err="identifier" hidden></p>
+        </div>
+        <div class="auth-field">
+          <div class="auth-lbl"><label for="siPw">Password</label><a href="#" data-go="forgot">Forgot</a></div>
+          <div class="auth-pw">
+            <input id="siPw" name="password" type="password" autocomplete="current-password" required>
+            <button class="auth-eye" type="button" data-eye aria-label="Show password" aria-pressed="false"></button>
+          </div>
+          <p class="auth-err" data-err="password" hidden></p>
+        </div>
+        <p class="auth-err auth-err-form" data-err="_" role="alert" hidden></p>
+        <button class="btn btn-hi btn-lg auth-submit" type="submit">Sign in</button>
+      </form>
+      <p class="auth-switch">New here? <a href="#" data-go="signup">Create a <span data-brand-short>Lab-Lace</span> account</a></p>
+      <hr class="auth-rule">
+      <p class="auth-terms">By signing in, you agree to our Terms &amp; policies.</p>
+    </section>
+
+    <!-- Create account -->
+    <section class="auth-view" data-view="signup" hidden>
+      <form class="auth-form" data-form="signup" novalidate>
+        <div class="auth-field">
+          <div class="auth-lbl"><label for="suName">Full name</label></div>
+          <input id="suName" name="fullName" autocomplete="name" required>
+          <p class="auth-err" data-err="fullName" hidden></p>
+        </div>
+        <div class="auth-field">
+          <div class="auth-lbl"><label for="suEmail">Email</label></div>
+          <input id="suEmail" name="email" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" required>
+          <p class="auth-err" data-err="email" hidden></p>
+        </div>
+        <div class="auth-field">
+          <div class="auth-lbl"><label for="suPw">Password</label><span class="auth-hint">at least 10 characters</span></div>
+          <div class="auth-pw">
+            <input id="suPw" name="password" type="password" autocomplete="new-password" minlength="10" required>
+            <button class="auth-eye" type="button" data-eye aria-label="Show password" aria-pressed="false"></button>
+          </div>
+          <p class="auth-err" data-err="password" hidden></p>
+        </div>
+        <div class="auth-row2">
+          <div class="auth-field">
+            <div class="auth-lbl"><label for="suCur">Your currency</label></div>
+            <select id="suCur" name="currency"></select>
+          </div>
+          <div class="auth-field">
+            <div class="auth-lbl"><label for="suCo">Company <span class="auth-opt">(optional)</span></label></div>
+            <input id="suCo" name="company" autocomplete="organization">
+          </div>
+        </div>
+        <p class="auth-err auth-err-form" data-err="_" role="alert" hidden></p>
+        <button class="btn btn-hi btn-lg auth-submit" type="submit">Create account</button>
+      </form>
+      <p class="auth-switch">Already have an account? <a href="#" data-go="signin">Sign in</a></p>
+      <hr class="auth-rule">
+      <p class="auth-terms">By creating an account, you agree to our Terms &amp; policies.</p>
+    </section>
+
+    <!-- Forgot password -->
+    <section class="auth-view" data-view="forgot" hidden>
+      <form class="auth-form" data-form="forgot" novalidate>
+        <p class="auth-lead">Enter the email you signed up with and we will send you a link to choose a new password.</p>
+        <div class="auth-field">
+          <div class="auth-lbl"><label for="fgEmail">Email</label></div>
+          <input id="fgEmail" name="email" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" required>
+          <p class="auth-err" data-err="email" hidden></p>
+        </div>
+        <p class="auth-err auth-err-form" data-err="_" role="alert" hidden></p>
+        <button class="btn btn-hi btn-lg auth-submit" type="submit">Send reset link</button>
+      </form>
+      <p class="auth-done" data-done role="status" hidden></p>
+      <p class="auth-switch"><a href="#" data-go="signin">Back to sign in</a></p>
+    </section>
+
+    <!-- Remind me of my username -->
+    <section class="auth-view" data-view="remind" hidden>
+      <form class="auth-form" data-form="remind" novalidate>
+        <p class="auth-lead">Forgotten what to type in the first box? Enter your email and we will remind you.</p>
+        <div class="auth-field">
+          <div class="auth-lbl"><label for="rmEmail">Email</label></div>
+          <input id="rmEmail" name="email" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" required>
+          <p class="auth-err" data-err="email" hidden></p>
+        </div>
+        <p class="auth-err auth-err-form" data-err="_" role="alert" hidden></p>
+        <button class="btn btn-hi btn-lg auth-submit" type="submit">Remind me</button>
+      </form>
+      <p class="auth-done" data-done role="status" hidden></p>
+      <p class="auth-switch"><a href="#" data-go="signin">Back to sign in</a></p>
+    </section>
+  </div>
+</div>

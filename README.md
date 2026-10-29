@@ -26,11 +26,14 @@ packages/
              catalogue, design-studio, how-we-work, request-quote; each holds its own
              markup, CSS, logic and data, see src/sections/README.md), page chrome
              (src/page/), same CSS, same markup
-  backend/   Express API, run under PM2 in production — receives quote submissions
-             at POST /api/quotes, validates them against the shared zod schema, and
-             persists them (JSON-file storage by default; swap the storage adapter
-             for a real database without touching the routes)
+  backend/   Express API on PostgreSQL, run under PM2 in production — accounts and
+             sessions, quote requests with progress, client/team chat (live updates),
+             invoices and payments; every body is validated against the shared zod schemas
 ```
+
+The site now has accounts: visitors **sign in or sign up** (Client, Admin, Finance) and a
+signed-in **portal** at `/portal/` takes over from the landing page. How it works, how to run
+and deploy it, and the security checklist are in **[docs/PORTAL.md](docs/PORTAL.md)**.
 
 ### Run it locally
 
@@ -38,15 +41,18 @@ packages/
 npm install                          # installs all three workspaces
 npm run build -w packages/shared     # shared must be built once before the others typecheck
 
-npm run dev:backend                  # Express on :8787 (copy packages/backend/.env.example to .env first)
-npm run dev:frontend                 # Vite on :5173 (copy packages/frontend/.env.example to .env.local first,
-                                      #                pointing VITE_API_BASE_URL at the backend)
+npm run db:migrate                   # create the tables (copy packages/backend/.env.example to .env first;
+                                      #   needs the SSH tunnel to the server's Postgres, see docs/PORTAL.md)
+npm run dev:backend                  # Express on :8787
+npm run dev:frontend                 # Vite on :5173 — proxies /api to the backend, no .env.local needed
+npm run dev:demo                     # or: the whole thing on an in-memory database, no server or tunnel
+npm test                             # backend tests
 ```
 
-Open the Vite dev server URL. The site behaves like `index.html`, plus: submitting the
-quote form now also POSTs to the backend (in addition to the `mailto:`/copy/download
-routes, which still work with no backend at all — same fallback philosophy as the
-original file, see §4 below).
+Open the Vite dev server URL. The site behaves like `index.html`, plus accounts and the portal.
+Submitting the quote form needs a signed-in client account; if the API cannot be reached the
+visitor still gets the `mailto:`/copy/download routes, same fallback philosophy as the
+original file (see §4 below).
 
 ### Deploy the backend with PM2
 
@@ -57,10 +63,9 @@ npm run pm2:restart
 npm run pm2:stop
 ```
 
-Set `ADMIN_TOKEN` in `packages/backend/.env` to enable `GET /api/quotes` (and
-`GET /api/quotes/:id`) — an authenticated "owner inbox" equivalent to the
-claude.ai-hosted copy's private panel described in §4, reachable via
-`Authorization: Bearer <token>`. Leave it unset to keep those routes disabled.
+Settings (database, email, cookies) live in `packages/backend/.env`, never in git. The old
+static `ADMIN_TOKEN` inbox is gone: Admins sign in and use the portal. See
+[docs/PORTAL.md](docs/PORTAL.md) for the full go-live steps (HTTPS, nginx, backups).
 
 ### What changed vs. the single file
 

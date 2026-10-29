@@ -6,6 +6,7 @@ import { applyBrand, initChrome } from './page/chrome.js';
 import { buildHero, playHeroIntro } from './page/hero.js';
 import { startHeroBg, stopHeroBg } from './page/hero-bg.js';
 import { buildFooterLinks } from './page/footer.js';
+import { initReveal } from './page/reveal.js';
 import { initRouter, navigate, onEnter, onLeave, onRoute, replaceRoute } from './page/router.js';
 
 // One folder per page section — see src/sections/README.md.
@@ -18,6 +19,8 @@ import { updateAttachState } from './sections/design-studio/ui-utils.js';
 import { loadBuild } from './sections/design-studio/palette-ui.js';
 import './sections/how-we-work/index.js';
 import { initQuote } from './sections/request-quote/index.js';
+import { initAuthModal, openAuth } from './sections/auth-modal/index.js';
+import { initNavAccount } from './sections/auth-modal/nav.js';
 import './sections/cta-band/index.js';
 
 function boot(): void {
@@ -29,7 +32,13 @@ function boot(): void {
   buildHero();
   initHomePreviews(); //  Home previews   → sections/home-previews  (page #/)
   initStudio(); //        Design studio   → sections/design-studio  (page #/studio)
-  initQuote(); //         Request a quote → sections/request-quote  (page #/contact)
+  // Request a quote → sections/request-quote (page #/contact). A visitor who is not signed in gets the sign-in box first.
+  initQuote({
+    mode: 'landing',
+    requireSignIn: () => openAuth('signin', { message: 'Sign in or create a free account to send your request. What you typed is kept.', stay: true }),
+  });
+  initAuthModal(); //     Sign in / up    → sections/auth-modal     (box over any page: #/login, #/signup)
+  initNavAccount(); //    Nav "Sign in" button / account chip       (sections/auth-modal/nav.ts)
   //                      How we work     → sections/how-we-work    (page #/process, static, nothing to start)
 
   // Glue between two sections: the catalogue modal's "Open this in the studio" button.
@@ -60,6 +69,8 @@ function boot(): void {
       if (!openProject(route.param)) replaceRoute('work');
     } else closeModal();
   });
+
+  initReveal(); //        scroll-in entrance animations for the elements listed in page/reveal.ts
 
   initRouter(); // last: its first render runs the hooks above
   setTimeout(fitAllStages, 200);

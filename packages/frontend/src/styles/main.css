@@ -91,8 +91,13 @@ section{position:relative}
 .nav-in{max-width:1360px;margin:0 auto;padding:0 var(--gut);min-height:72px;display:flex;align-items:center;gap:24px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.03em;font-size:16px;flex:0 1 auto;min-width:0}
 .brand span{line-height:1.15}
+/* two-line "pyramid" lockup: short bold name on top, wider tracked descriptor beneath, both centred */
+.brand{gap:14px}
+.brand span{display:flex;flex-direction:column;align-items:center;text-align:center}
+.brand-top{font-style:normal;font-weight:800;font-size:25px;line-height:1;letter-spacing:.2em;margin-right:-.2em;color:var(--ink)}
+.brand-sub{font-style:normal;font-weight:500;font-size:11.5px;line-height:1;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:var(--ink-2);margin-top:6px;padding-top:6px;border-top:1px solid var(--line-2)}
 .brand svg{flex:none}
-.brand img{flex:none;height:38px;width:auto}
+.brand img{flex:none;height:54px;width:auto}
 .brand small{display:block;font-family:var(--mono);font-size:9.5px;font-weight:400;color:var(--ink-3);letter-spacing:.06em;margin-top:-2px}
 /* menu links are full-height, uppercase and tracked, with an underline on the current page (after the reference site) */
 .nav-links{display:flex;align-self:stretch;gap:2px;margin-left:auto}
@@ -256,6 +261,20 @@ main{position:relative;z-index:1}
   .hero-fig[data-intro="play"] .laptop-glass{animation:glassOn .9s ease-out var(--glass-delay) both}
   .hero-fig[data-intro="play"] .laptop-screen .el{animation:elBoot .5s cubic-bezier(.2,.9,.3,1) calc(var(--boot-delay) + min(var(--i,0) * 28ms,1.1s)) both}
 }
+/* ============ scroll reveal ============
+   page/reveal.ts tags elements with data-reveal and adds .rv-in each time one scrolls into view (--rv-d = stagger delay).
+   Individual transform properties (translate/scale) are used so card hover transforms keep working, and the
+   animation only fills backwards so nothing stays pinned once it has played. */
+@media (prefers-reduced-motion:no-preference){
+  .rv-on [data-reveal]:not(.rv-in){opacity:0}
+  .rv-on [data-reveal].rv-in{animation:rvUp .75s cubic-bezier(.2,.8,.2,1) var(--rv-d,0ms) backwards}
+  .rv-on [data-reveal="left"].rv-in{animation-name:rvLeft}
+  .rv-on [data-reveal="right"].rv-in{animation-name:rvRight}
+}
+@keyframes rvUp{from{opacity:0;translate:0 32px}}
+@keyframes rvLeft{from{opacity:0;translate:-48px 0}}
+@keyframes rvRight{from{opacity:0;translate:48px 0}}
+
 @keyframes lapSettle{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes rigTurn{from{transform:var(--pose-from)}} /* the whole laptop swings round into its resting angle (--pose) */
 @keyframes lidOpen{ /* lid lifts off the base, swings up past upright, then settles back */
@@ -297,6 +316,8 @@ footer li{margin-bottom:8px;font-size:14px;color:#C3C9D0}
 footer a:hover{color:var(--signal)}
 .f-bot{margin-top:40px;padding-top:18px;border-top:1px solid #2A3036;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:13px;color:#7F8790}
 footer .brand{color:#fff}
+footer .brand-top{color:#fff}
+footer .brand-sub{color:#C3C9D0;border-top-color:#3A4149}
 footer .brand small{color:#8D959E}
 
 /* ============ toast ============ */
@@ -321,6 +342,10 @@ footer .brand small{color:#8D959E}
 }
 @media (max-width:760px){
   .nav-act .btn{display:none}
+  .brand{gap:10px}
+  .brand img{height:44px}
+  .brand-top{font-size:19px}
+  .brand-sub{font-size:8.5px;letter-spacing:.08em}
   .hero-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
   .hero-meta div{padding:14px 10px 4px 0;margin-right:10px}
   .hero-meta b{font-size:26px}
