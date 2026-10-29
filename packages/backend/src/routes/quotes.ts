@@ -1,49 +1,57 @@
+import { clientQuoteActionSchema, submitQuoteSchema, type CreateQuoteResponse, type GetQuoteResponse, type ListQuotesResponse } from '@coreloop/shared';
 import { Router } from 'express';
-import type { CreateQuoteResponse, GetQuoteResponse, ListQuotesResponse } from '@coreloop/shared';
-import { requireAdmin } from '../middleware/require-admin.js';
+import { parse, wrap } from '../lib/http-error.js';
+import { requireRole, requireVerified } from '../middleware/auth.js';
+import type { Limiters } from '../middleware/limits.js';
 import type { QuotesService } from '../services/quotes.service.js';
 
-export function quotesRouter(service: QuotesService): Router {
+/** A client's own quote requests. Everything here is scoped to the signed-in client. */
+export function quotesRouter(quotes: QuotesService, limits: Limiters): Router {
   const router = Router();
+  const client = requireRole('client');
 
-  // Public: the quote form posts here. No auth — this is the site's
-  // "contact us" path, equivalent to the old mailto:/claude.ai-db submit.
-  router.post('/', async (req, res, next) => {
-    try {
-      const record = await service.create(req.body);
-      const body: CreateQuoteResponse = { ok: true, quote: record };
+  router.post(
+    '/',
+    client,
+    requireVerified,
+    limits.quote,
+    wrap(async (req, res) => {
+      const quote = await quotes.create(req.user!, parse(submitQuoteSchema, req.body), req.ip ?? '');
+      const body: CreateQuoteResponse = { ok: true, quote };
       res.status(201).json(body);
-    } catch (err) {
-      next(err);
-    }
-  });
+    }),
+  );
 
-  // Admin-only from here down: the "owner inbox" equivalent.
-  router.get('/', requireAdmin, async (req, res, next) => {
-    try {
-      const limitParam = Number(req.query['limit']);
-      const limit = Number.isFinite(limitParam) && limitParam > 0 ? Math.min(limitParam, 200) : 50;
-      const quotes = await service.list(limit);
-      const body: ListQuotesResponse = { ok: true, quotes };
+  router.get(
+    '/',
+    client,
+    wrap(async (req, res) => {
+      const list = await quotes.listForClient(req.user!.id);
+      const body: ListQuotesResponse = { ok: true, quotes: list, total: list.length };
       res.json(body);
-    } catch (err) {
-      next(err);
-    }
-  });
+    }),
+  );
 
-  router.get('/:id', requireAdmin, async (req, res, next) => {
-    try {
-      const quote = await service.getById(req.params['id'] ?? '');
-      if (!quote) {
-        res.status(404).json({ ok: false, error: 'Not found' });
-        return;
-      }
-      const body: GetQuoteResponse = { ok: true, quote };
+  router.get(
+    '/:id',
+    client,
+    wrap(async (req, res) => {
+      const body: GetQuoteResponse = { ok: true, quote: await quotes.getForClient(req.user!.id, String(req.params['id'])) };
       res.json(body);
-    } catch (err) {
-      next(err);
-    }
-  });
+    }),
+  );
+
+  for (const action of ['approve', 'decline', 'cancel'] as const) {
+    router.post(
+      `/:id/${action}`,
+      client,
+      wrap(async (req, res) => {
+        const input = parse(clientQuoteActionSchema, req.body ?? {});
+        const body: GetQuoteResponse = { ok: true, quote: await quotes.clientAct(req.user!, String(req.params['id']), action, input.note, req.ip ?? '') };
+        res.json(body);
+      }),
+    );
+  }
 
   return router;
 }

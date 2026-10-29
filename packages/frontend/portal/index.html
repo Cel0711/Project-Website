@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard — Lab-Lace IT Software &amp; Solutions</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="portal">
+
+<!-- The signed-in app (src/portal/app.ts): sidebar, top bar and one view at a time are drawn here. -->
+<div id="app"><p class="boot">Loading your dashboard…</p></div>
+
+<!-- One reusable dialog for forms and confirmations (src/portal/dialog.ts). -->
+<div class="modal" id="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgTitle">
+  <div class="modal-bg" data-dlg-close></div>
+  <div class="modal-card dlg-card" id="dlgCard"></div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- The quote form is the same markup the landing page uses; "Get a quote" copies it from here. -->
+<template id="tplQuoteForm">
+<!-- @include src/sections/request-quote/quote-form.html -->
+</template>
+
+<script type="module" src="/src/portal/main.ts"></script>
+</body>
+</html>

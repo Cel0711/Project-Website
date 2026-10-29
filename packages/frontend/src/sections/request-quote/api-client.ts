@@ -1,28 +1,14 @@
 import { API_ROUTES, type CreateQuoteResponse, type QuoteRecord, type QuoteRequestPayload } from '@coreloop/shared';
-
-const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
+import { api } from '../../api/client.js';
 
 /**
- * Posts a quote request to the backend (packages/backend, run under PM2).
- * This is the replacement for the old single-file site's optional
- * "wire it to your own backend" fetch snippet and its claude.ai-only
- * db hook — here it is first-class and always attempted.
+ * Sends a quote request to the backend (packages/backend). The visitor must be signed in as a client; the
+ * request is then stored against their account so they can follow its progress and message the team.
  *
- * Deliberately non-throwing: the email/copy/download fallbacks in
- * quote/fallback.ts are the paths that always work, on every host, with
- * no backend required, so a failed POST here must never block the visitor.
+ * Errors are thrown (ApiRequestError). The caller falls back to the email / copy / download routes in
+ * fallback.ts when the server cannot be reached, so a failed send never loses what the visitor typed.
  */
-export async function submitQuote(payload: QuoteRequestPayload): Promise<QuoteRecord | null> {
-  try {
-    const res = await fetch(`${API_BASE}${API_ROUTES.quotes}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (!res.ok) return null;
-    const body = (await res.json()) as CreateQuoteResponse;
-    return body.ok ? body.quote : null;
-  } catch {
-    return null;
-  }
+export async function submitQuote(payload: QuoteRequestPayload): Promise<QuoteRecord> {
+  const res = await api.post<CreateQuoteResponse>(API_ROUTES.quotes, payload);
+  return res.quote;
 }

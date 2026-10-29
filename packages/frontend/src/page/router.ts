@@ -12,10 +12,14 @@ import { CFG } from '../config.js';
  */
 
 export type PageId = 'home' | 'services' | 'work' | 'studio' | 'process' | 'contact';
+/** Sign-in and sign-up are boxes over whatever page is showing (#/login, #/signup), not pages of their own. */
+export type Overlay = 'login' | 'signup';
 export interface Route {
+  /** With an overlay this is the page underneath it. */
   page: PageId;
   /** Only the work page takes one: #/work/WRK-07 opens that build's detail modal. */
   param: string | null;
+  overlay: Overlay | null;
 }
 
 const SEGMENT: Record<PageId, string> = { home: '', services: 'services', work: 'work', studio: 'studio', process: 'process', contact: 'contact' };
@@ -42,6 +46,7 @@ function parse(hash: string): Route {
   const raw = hash.replace(/^#/, '');
   const path = LEGACY.get(raw) ?? raw;
   const [seg = '', param] = path.split('/').filter(Boolean);
+  if (seg === 'login' || seg === 'signup') return { page: current?.page ?? 'home', param: null, overlay: seg };
   const page = PAGES.find((p) => SEGMENT[p] === seg) ?? 'home';
   let id: string | null = null;
   if (page === 'work' && param) {
@@ -51,10 +56,11 @@ function parse(hash: string): Route {
       id = null;
     }
   }
-  return { page, param: id };
+  return { page, param: id, overlay: null };
 }
 
 function pathOf(r: Route): string {
+  if (r.overlay) return '/' + r.overlay;
   const seg = SEGMENT[r.page];
   return '/' + (r.param ? `${seg}/${encodeURIComponent(r.param)}` : seg);
 }
@@ -131,7 +137,7 @@ export function navigate(path: string): void {
 
 /** Swap the URL for another route without adding a history entry or running any hooks (e.g. when a modal closes). */
 export function replaceRoute(page: PageId, param: string | null = null): void {
-  const route: Route = { page, param };
+  const route: Route = { page, param, overlay: null };
   history.replaceState(null, '', '#' + pathOf(route));
   current = route;
 }

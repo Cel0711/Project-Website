@@ -18,7 +18,7 @@
 <nav class="nav">
   <div class="nav-in">
     <a class="brand" href="#/" aria-label="Lab-Lace IT Software &amp; Solutions, home">
-      <img src="/lab-lace-emblem.png" alt="" width="32" height="38">
+      <img src="/lab-lace-emblem.png" alt="" width="45" height="54">
       <span>Lab-Lace IT Software &amp; Solutions</span>
     </a>
     <div class="nav-links">
@@ -37,11 +37,26 @@
         <span>Menu</span>
         <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
       </button>
+      <!-- Sign in for visitors; the account chip replaces it once signed in (sections/auth-modal/nav.ts). -->
+      <a class="btn btn-line" id="signInBtn" href="#/login">Sign in</a>
+      <div class="acct" id="acct" hidden>
+        <button class="acct-btn" id="acctBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Account menu">
+          <span class="acct-av" id="acctAv">?</span><span class="acct-name" id="acctName"></span>
+        </button>
+        <div class="acct-menu" id="acctMenu" role="menu" hidden>
+          <div class="acct-who" id="acctWho"></div>
+          <a role="menuitem" href="/portal/">My dashboard</a>
+          <button role="menuitem" type="button" data-signout>Sign out</button>
+        </div>
+      </div>
       <a class="btn btn-hi" href="#/contact">Get a quote</a>
     </div>
   </div>
   <div class="mobmenu" id="mobmenu">
     <a href="#/" data-route="home">Home</a><a href="#/services" data-route="services">What we build</a><a href="#/work" data-route="work">Work</a><a href="#/studio" data-route="studio">Design studio</a><a href="#/process" data-route="process">How we work</a><a href="#/contact" data-route="contact">Contact</a>
+    <a href="#/login" data-auth="guest">Sign in</a>
+    <a href="/portal/" data-auth="user" hidden>My dashboard</a>
+    <a href="#" data-auth="user" data-signout hidden>Sign out</a>
     <a class="btn btn-hi" href="#/contact">Get a quote</a>
   </div>
 </nav>
@@ -132,7 +147,7 @@
     <div class="f-grid">
       <div>
         <div class="brand" style="margin-bottom:12px">
-          <img src="/lab-lace-emblem.png" alt="" width="32" height="38">
+          <img src="/lab-lace-emblem.png" alt="" width="45" height="54">
           <span>Lab-Lace IT Software &amp; Solutions</span>
         </div>
         <p style="font-size:14px;color:#AEB5BD;max-width:36ch">Custom software, automation and enterprise interfaces. Built by the people you talk to.</p>
@@ -155,6 +170,7 @@
 </main>
 
 <!-- @include src/sections/catalogue/project-modal.html -->
+<!-- @include src/sections/auth-modal/auth-modal.html -->
 
 <div id="toast" role="status" aria-live="polite"></div>
 

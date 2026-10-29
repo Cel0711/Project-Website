@@ -18,6 +18,11 @@ them, chosen by the URL hash (`/#/work`, `/#/studio`, …). Old anchors such as 
 | How we work | `#/process` | [`how-we-work/`](how-we-work/) | the four stages → `how-we-work.html` (static, no script) |
 | Request a quote | `#/contact` | [`request-quote/`](request-quote/) | form fields and plans → `form.ts` / `request-quote.html` · API call → `api-client.ts` · no-backend fallback → `fallback.ts` |
 | "Get a quote" band | closes every page except Contact | [`cta-band/`](cta-band/) | the band's wording → `cta-band.html` (static, no script) |
+| Sign in / Create account | a box over any page: `#/login`, `#/signup`, the nav "Sign in" button, or the quote form | [`auth-modal/`](auth-modal/) | the box → `auth-modal.html`, `index.ts` · the nav account chip → `nav.ts` · styles → `auth-modal.css` |
+
+The signed-in **portal** is a second document, `portal/index.html`, with its own code in [`../portal/`](../portal/)
+(router, shell, one screen per file under `views/`). It reuses the quote form from `request-quote/` for "Get a quote".
+See [docs/PORTAL.md](../../../../docs/PORTAL.md).
 
 Every page except Home starts with a banner (breadcrumb, eyebrow tag, the page's single `<h1>`, intro) — its
 markup is the first `<section class="pagehead">` of that section's `.html`.

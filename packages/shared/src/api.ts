@@ -1,25 +1,34 @@
-import type { QuoteRecord, QuoteRequestPayload, QuoteSummary } from './quote.js';
+import type { QuoteRecord, QuoteSummary } from './quote.js';
 
-/** Single source of truth for backend route paths, imported by both sides. */
+/** Single source of truth for backend route roots, imported by both sides. */
 export const API_ROUTES = {
   health: '/api/health',
+  auth: '/api/auth',
+  me: '/api/me',
   quotes: '/api/quotes',
   quoteById: (id: string): string => `/api/quotes/${encodeURIComponent(id)}`,
+  admin: '/api/admin',
+  conversations: '/api/conversations',
+  events: '/api/events',
+  notifications: '/api/notifications',
+  invoices: '/api/invoices',
+  finance: '/api/finance',
 } as const;
 
 export interface ApiError {
   ok: false;
   error: string;
+  /** Field-level messages from validation, e.g. "email: A valid email is required". */
+  issues?: string[];
+  /** Machine-readable hint such as "must_change_password" or "email_not_verified". */
+  code?: string;
 }
 
 export interface HealthResponse {
   ok: true;
   service: 'coreloop-api';
   uptimeSeconds: number;
-}
-
-export interface CreateQuoteRequest {
-  quote: QuoteRequestPayload;
+  db?: 'up' | 'down';
 }
 
 export interface CreateQuoteResponse {
@@ -30,6 +39,7 @@ export interface CreateQuoteResponse {
 export interface ListQuotesResponse {
   ok: true;
   quotes: QuoteSummary[];
+  total: number;
 }
 
 export interface GetQuoteResponse {

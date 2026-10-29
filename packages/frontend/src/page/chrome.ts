@@ -4,9 +4,11 @@ import { fitAllStages } from '../engine/stage.js';
 
 /** Fills in the company name and contact details everywhere they appear. (The page title belongs to page/router.ts.) */
 export function applyBrand(): void {
+  // Logo lockup, pyramid style: first word (the name) on top, the rest (the descriptor) wider underneath.
+  const [top = '', ...rest] = CFG.company.split(' ');
   $$<HTMLElement>('.brand span').forEach((s) => {
     const small = s.querySelector('small');
-    s.textContent = CFG.company;
+    s.innerHTML = `<b class="brand-top">${esc(top.toUpperCase())}</b><i class="brand-sub">${esc(rest.join(' '))}</i>`;
     if (small) s.appendChild(small);
   });
   const y = $<HTMLElement>('#yr');

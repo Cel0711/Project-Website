@@ -17,54 +17,6 @@
       </div>
     </div>
 
-    <form class="form" id="quoteForm" novalidate>
-      <div class="f2">
-        <div class="fi"><label for="qName">Your name</label><input id="qName" name="name" autocomplete="name" required></div>
-        <div class="fi"><label for="qCompany">Company (optional)</label><input id="qCompany" name="company" autocomplete="organization"></div>
-      </div>
-      <div class="f2">
-        <div class="fi"><label for="qEmail">Email</label><input id="qEmail" name="email" type="email" autocomplete="email" required></div>
-        <div class="fi"><label for="qPhone">Phone or WhatsApp (optional)</label><input id="qPhone" name="phone" autocomplete="tel"></div>
-      </div>
-      <div class="fi">
-        <label>What do you need built? Pick any</label>
-        <div class="pickrow" id="qKind" role="group" aria-label="Type of work"></div>
-      </div>
-      <div class="fi">
-        <label>Choose a plan</label>
-        <div class="plans" id="qPlans" role="group" aria-label="Plan"></div>
-        <span class="xs" id="planNote"></span>
-      </div>
-      <div class="f2">
-        <div class="fi"><label for="qBudget">Budget range</label>
-          <select id="qBudget" name="budget">
-            <option>Not sure yet &mdash; advise me</option><option>Under 5k</option><option>5k &ndash; 15k</option><option>15k &ndash; 50k</option><option>50k &ndash; 150k</option><option>Above 150k</option>
-          </select></div>
-        <div class="fi"><label for="qWhen">Timeline</label>
-          <select id="qWhen" name="timeline">
-            <option>As soon as possible</option><option>Within 1 month</option><option>1 &ndash; 3 months</option><option>Later this year</option><option>Just researching</option>
-          </select></div>
-      </div>
-      <div class="fi">
-        <label for="qNotes">What happens today, and what should happen instead?</label>
-        <textarea id="qNotes" name="notes" placeholder="Example: three people re-key supplier quotes into a BOM spreadsheet every week. Errors reach production. We want one screen where quotes come in, costs roll up and approvals are logged."></textarea>
-      </div>
-      <label class="attach" for="qAttach">
-        <input type="checkbox" id="qAttach" checked>
-        <span class="sm" style="color:var(--ink)">Attach my studio design<br><span class="xs" id="attachState">Nothing drawn yet &mdash; the design studio is optional.</span></span>
-      </label>
-      <button class="btn btn-hi btn-lg" type="submit" style="justify-self:start">Send request</button>
-      <div class="send-out" id="sendOut" aria-live="polite">
-        <div>
-          <b class="d4" id="soTitle">Request ready</b>
-          <p class="sm" id="soMsg" style="margin-top:4px"></p>
-        </div>
-        <div class="row">
-          <a class="btn btn-brand" id="soMail" href="#">Open email</a>
-          <button class="btn btn-line" id="soCopy" type="button">Copy brief</button>
-          <button class="btn btn-line" id="soFile" type="button">Download design file</button>
-        </div>
-      </div>
-    </form>
+    <!-- @include src/sections/request-quote/quote-form.html -->
   </div>
 </section>
