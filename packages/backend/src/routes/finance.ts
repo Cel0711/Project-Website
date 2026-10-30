@@ -114,7 +114,7 @@ export function financeRouter(finance: FinanceService, users: UsersService): Rou
     '/export.csv',
     wrap(async (req, res) => {
       const csv = await finance.exportCsv(filterOf(req.query));
-      res.set({ 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="lablace-invoices.csv"' }).send(csv);
+      res.set({ 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="labblace-invoices.csv"' }).send(csv);
     }),
   );
 

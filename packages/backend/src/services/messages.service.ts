@@ -36,7 +36,7 @@ function chatMessage(r: Row): ChatMessage {
   return {
     id: r.id,
     conversationId: r.conversation_id,
-    sender: r.sender_id ? { id: r.sender_id, fullName: r.full_name, role: r.role } : { id: '', fullName: 'Lab-Lace', role: 'admin' },
+    sender: r.sender_id ? { id: r.sender_id, fullName: r.full_name, role: r.role } : { id: '', fullName: 'Labb-Lace', role: 'admin' },
     body: r.body,
     createdAt: isoOf(r.created_at),
     system: !!r.system,

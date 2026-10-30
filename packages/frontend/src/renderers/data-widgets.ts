@@ -194,7 +194,7 @@ def<CodeBlockProps>('codeBlock', {
     const sets: Record<CodeVariant, string[]> = {
       logs: ['04:00:01 INFO  start job=bom-sync id=2041', '04:00:02 INFO  fetched 1,284 rows from ERP', '04:00:04 WARN  3 parts missing unit cost', '04:00:06 INFO  cost roll-up complete', '04:00:06 INFO  notified 4 subscribers', '04:00:07 INFO  done in 6.2s'],
       code: ['async function rollUp(bomId) {', '  const parts = await erp.parts(bomId);', '  const missing = parts.filter(p => !p.cost);', '  if (missing.length) await notify(missing);', '  return sum(parts, p => p.qty * p.cost);', '}'],
-      terminal: ['$ lablace deploy --site kl1', '✓ validated 42 config templates', '✓ pushed to 184 racks', '! 1 rack needs manual review', '✓ done in 1m 12s'],
+      terminal: ['$ labblace deploy --site kl1', '✓ validated 42 config templates', '✓ pushed to 184 racks', '! 1 rack needs manual review', '✓ done in 1m 12s'],
       yaml: ['site: kl1', 'racks: 184', 'templates:', '  - switch-leaf-v3', '  - pdu-standard', 'validate: strict'],
     };
     const it = custom.length ? custom : sets[v] || sets.logs;

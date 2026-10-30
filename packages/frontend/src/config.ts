@@ -5,8 +5,8 @@ import type { SiteConfig } from '@coreloop/shared';
  * need to touch (see README at the repo root for the full checklist).
  */
 export const CFG: SiteConfig = {
-  company: 'Lab-Lace IT Software & Solutions',
-  email: 'contact.support@lablace.com',
+  company: 'Labb-Lace IT Software & Solutions',
+  email: 'contact.support@labblace.com',
 
   /* Plans a visitor can pick when they send a design. Edit freely — add,
      remove or reprice. "rec" marks the highlighted one. */

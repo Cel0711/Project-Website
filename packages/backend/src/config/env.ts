@@ -59,7 +59,7 @@ function readSmtp(): SmtpConfig | null {
     secure: flag(process.env.SMTP_SECURE, port === 465),
     user: process.env.SMTP_USER || '',
     pass: process.env.SMTP_PASS || '',
-    from: process.env.SMTP_FROM || process.env.NOTIFY_EMAIL || 'contact.support@lablace.com',
+    from: process.env.SMTP_FROM || process.env.NOTIFY_EMAIL || 'contact.support@labblace.com',
   };
 }
 
@@ -77,6 +77,6 @@ export const env: AppEnv = {
   cookieSecure: flag(process.env.COOKIE_SECURE, mode === 'production'),
   sessionTtlDays: Number(process.env.SESSION_TTL_DAYS) || 14,
   smtp: readSmtp(),
-  companyName: process.env.COMPANY_NAME || 'Lab-Lace IT Software & Solutions',
-  notifyEmail: process.env.NOTIFY_EMAIL || 'contact.support@lablace.com',
+  companyName: process.env.COMPANY_NAME || 'Labb-Lace IT Software & Solutions',
+  notifyEmail: process.env.NOTIFY_EMAIL || 'contact.support@labblace.com',
 };

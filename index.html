@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lab-Lace IT Software &amp; Solutions — custom software, automation and enterprise dashboards</title>
+<title>Labb-Lace IT Software &amp; Solutions — custom software, automation and enterprise dashboards</title>
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <meta name="description" content="We build custom software: AI automation, data centre configuration automation, BOM and report automation, ops dashboards, Android apps, enterprise web and point of sale. Design your own screen in our studio and send it to us for a quote.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -438,9 +438,9 @@ footer .brand small{color:#8D959E}
 
 <nav class="nav">
   <div class="nav-in">
-    <a class="brand" href="#top" aria-label="Lab-Lace IT Software &amp; Solutions, home">
+    <a class="brand" href="#top" aria-label="Labb-Lace IT Software &amp; Solutions, home">
       <img src="assets/lab-lace-emblem.png" alt="" width="32" height="38">
-      <span>Lab-Lace IT Software &amp; Solutions</span>
+      <span>Labb-Lace IT Software &amp; Solutions</span>
     </a>
     <div class="nav-links">
       <a href="#work">Work</a>
@@ -647,7 +647,7 @@ footer .brand small{color:#8D959E}
         <p class="lead">Send a sketch, a screenshot, a spreadsheet or two paragraphs. We reply within one business day with a scope, a price range and the questions we still have.</p>
       </div>
       <div class="contact-list">
-        <div><span class="fld">Email</span><b id="cEmail">contact.support@lablace.com</b></div>
+        <div><span class="fld">Email</span><b id="cEmail">contact.support@labblace.com</b></div>
         <div><span class="fld">Response time</span><b>Within 1 business day</b></div>
         <div><span class="fld">Engagements</span><b>Fixed-price projects and monthly retainers</b></div>
         <div><span class="fld">Works with</span><b>Individuals, SMEs and enterprise IT teams</b></div>
@@ -712,7 +712,7 @@ footer .brand small{color:#8D959E}
       <div>
         <div class="brand" style="margin-bottom:12px">
           <img src="assets/lab-lace-emblem.png" alt="" width="32" height="38">
-          <span>Lab-Lace IT Software &amp; Solutions</span>
+          <span>Labb-Lace IT Software &amp; Solutions</span>
         </div>
         <p style="font-size:14px;color:#AEB5BD;max-width:36ch">Custom software, automation and enterprise interfaces. Built by the people you talk to.</p>
       </div>
@@ -721,11 +721,11 @@ footer .brand small{color:#8D959E}
         <li><a href="#build">What we build</a></li><li><a href="#work">Catalogue</a></li><li><a href="#studio">Design studio</a></li><li><a href="#process">How we work</a></li><li><a href="#quote">Request a quote</a></li>
       </ul></div>
       <div><h4>Contact</h4><ul>
-        <li><a href="#" id="fMail">contact.support@lablace.com</a></li><li>Replies within 1 business day</li><li>Remote, worldwide</li>
+        <li><a href="#" id="fMail">contact.support@labblace.com</a></li><li>Replies within 1 business day</li><li>Remote, worldwide</li>
       </ul></div>
     </div>
     <div class="f-bot">
-      <span>&copy; <span id="yr">2026</span> Lab-Lace IT Software &amp; Solutions. All rights reserved.</span>
+      <span>&copy; <span id="yr">2026</span> Labb-Lace IT Software &amp; Solutions. All rights reserved.</span>
       <span class="mono">Screens on this page are drawn live in your browser</span>
     </div>
   </div>
@@ -769,12 +769,12 @@ footer .brand small{color:#8D959E}
 <script src="assets/vendor/vanta.rings.min.js"></script>
 <script>
 /* =====================================================================
-   Lab-Lace IT Software & Solutions — single-file site
+   Labb-Lace IT Software & Solutions — single-file site
    EDIT THESE TWO LINES to make the site yours.
    ===================================================================== */
 var CFG = {
-  company: 'Lab-Lace IT Software & Solutions',
-  email:   'contact.support@lablace.com',
+  company: 'Labb-Lace IT Software & Solutions',
+  email:   'contact.support@labblace.com',
 
   /* Plans a visitor can pick when they send a design. Edit freely —
      add, remove or reprice. "rec" marks the highlighted one. */
@@ -1729,7 +1729,7 @@ def('codeBlock',{ cat:'data', label:'Code / log', w:380, h:180, fillVar:'--sc-da
     var sets={
       logs:['04:00:01 INFO  start job=bom-sync id=2041','04:00:02 INFO  fetched 1,284 rows from ERP','04:00:04 WARN  3 parts missing unit cost','04:00:06 INFO  cost roll-up complete','04:00:06 INFO  notified 4 subscribers','04:00:07 INFO  done in 6.2s'],
       code:['async function rollUp(bomId) {','  const parts = await erp.parts(bomId);','  const missing = parts.filter(p => !p.cost);','  if (missing.length) await notify(missing);','  return sum(parts, p => p.qty * p.cost);','}'],
-      terminal:['$ lablace deploy --site kl1','✓ validated 42 config templates','✓ pushed to 184 racks','! 1 rack needs manual review','✓ done in 1m 12s'],
+      terminal:['$ labblace deploy --site kl1','✓ validated 42 config templates','✓ pushed to 184 racks','! 1 rack needs manual review','✓ done in 1m 12s'],
       yaml:['site: kl1','racks: 184','templates:','  - switch-leaf-v3','  - pdu-standard','validate: strict']
     };
     var it=custom.length?custom:(sets[v]||sets.logs);

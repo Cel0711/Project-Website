@@ -26,7 +26,7 @@ export function timeline(events: QuoteEvent[], staff: boolean): string {
   return `<ol class="tl">${[...events]
     .reverse()
     .map((e) => {
-      const who = e.actor ? esc(e.actor.fullName) + (e.actor.role && e.actor.role !== 'client' && !staff ? ' · Lab-Lace team' : '') : 'System';
+      const who = e.actor ? esc(e.actor.fullName) + (e.actor.role && e.actor.role !== 'client' && !staff ? ' · Labb-Lace team' : '') : 'System';
       return (
         `<li class="tl-i k-${e.kind}${e.visibleToClient ? '' : ' internal'}"><span class="tl-dot"></span><div class="tl-b">` +
         `<div class="tl-h"><b>${esc(eventTitle(e, staff))}</b>${e.visibleToClient ? '' : badge('Team only', 'neutral')}</div>` +

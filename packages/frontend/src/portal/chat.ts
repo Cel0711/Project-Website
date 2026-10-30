@@ -52,7 +52,7 @@ export async function mountChat(host: HTMLElement, convId: string, ctx: ViewCtx,
   function bubble(m: ChatMessage, seen: boolean): string {
     if (m.system) return `<div class="msg sys" data-id="${m.id}"><span>${esc(m.body)}</span><time>${esc(TIME.format(new Date(m.createdAt)))}</time></div>`;
     const mine = m.sender.id === me.id;
-    const who = mine ? 'You' : m.sender.role === 'client' ? m.sender.fullName : viewerIsClient ? `${m.sender.fullName} · Lab-Lace team` : m.sender.fullName;
+    const who = mine ? 'You' : m.sender.role === 'client' ? m.sender.fullName : viewerIsClient ? `${m.sender.fullName} · Labb-Lace team` : m.sender.fullName;
     return `<div class="msg ${mine ? 'mine' : 'theirs'}" data-id="${m.id}"><div class="msg-b">${esc(m.body)}</div><div class="msg-m">${esc(who)} · <time>${esc(TIME.format(new Date(m.createdAt)))}</time>${seen ? ' · <span class="seen">Seen</span>' : ''}</div></div>`;
   }
 
