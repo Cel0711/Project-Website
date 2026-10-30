@@ -26,18 +26,16 @@ export function initChrome(): void {
   const root = document.documentElement;
   let saved: string | null = null;
   try {
-    saved = localStorage.getItem('cl_theme');
+    saved = sessionStorage.getItem('cl_theme');
   } catch {
     /* storage may be blocked (private mode, locked-down browser) — theme just won't persist */
   }
   if (saved) root.setAttribute('data-theme', saved);
   $('#themeBtn')?.addEventListener('click', () => {
-    let cur = root.getAttribute('data-theme');
-    if (!cur) cur = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-    const next = cur === 'dark' ? 'light' : 'dark';
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try {
-      localStorage.setItem('cl_theme', next);
+      sessionStorage.setItem('cl_theme', next);
     } catch {
       /* same as above */
     }

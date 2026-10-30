@@ -218,7 +218,7 @@ padding), adjustments (brightness, contrast, saturation, blur, hue), a layers pa
 lock/hide/reorder, undo/redo, duplicate, keyboard shortcuts, zoom and fit.
 
 Work autosaves to `localStorage` under the key `cl_studio_v1`, so a half-finished sketch
-survives a closed tab. The colour theme is remembered under `cl_theme`. Nothing is sent
+survives a closed tab. The site always opens in the light theme; if a visitor switches to dark it is kept for that browser session only (`sessionStorage`, key `cl_theme`), so the landing site and the portal agree. Nothing is sent
 anywhere until the visitor presses send.
 
 ---
@@ -250,7 +250,7 @@ The scale is set in the `.d1 .d2 .d3 .d4 .lead .sm .xs` classes.
 
 - Keyboard focus is visible everywhere (`:focus-visible`, amber outline).
 - `prefers-reduced-motion` is respected — the one page-load animation is skipped.
-- `prefers-color-scheme` is honoured, with a manual override in the nav.
+- Light is the default theme regardless of the OS setting; dark is optional via the theme button in the nav.
 - Safe-area insets are handled for notched phones.
 - Contrast on body text, buttons and status colours passes WCAG AA.
 - No cookies, no analytics, no trackers, no third-party scripts.

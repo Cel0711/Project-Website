@@ -81,7 +81,7 @@ export interface Shell {
 
 function applyStoredTheme(): void {
   try {
-    const saved = localStorage.getItem('cl_theme');
+    const saved = sessionStorage.getItem('cl_theme');
     if (saved) document.documentElement.setAttribute('data-theme', saved);
   } catch {
     /* storage may be blocked; the theme just will not persist */
@@ -90,11 +90,10 @@ function applyStoredTheme(): void {
 
 function toggleTheme(): void {
   const root = document.documentElement;
-  const cur = root.getAttribute('data-theme') ?? (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
-  const next = cur === 'dark' ? 'light' : 'dark';
+  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   root.setAttribute('data-theme', next);
   try {
-    localStorage.setItem('cl_theme', next);
+    sessionStorage.setItem('cl_theme', next);
   } catch {
     /* same as above */
   }

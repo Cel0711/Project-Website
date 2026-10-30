@@ -6,7 +6,7 @@
   --brand:#5E6A76; --brand-2:#48525C; --brand-tint:#E9ECF0;
   --signal:#FFC41F; --signal-2:#EBAA00; --signal-tint:#FFF3D0;
   --alert:#C93F16; --ok:#1C7A49; --warn:#B57C00; --info:#1D5B98;
-  --sh-1:0 1px 2px rgba(23,36,42,.08);
+  --sh-1:0 1px 2px rgba(23,36,42,.1),0 3px 10px -3px rgba(23,36,42,.14);
   --sh-2:0 8px 28px -12px rgba(23,36,42,.28);
   --sh-3:0 24px 60px -24px rgba(23,36,42,.38);
   --r-s:3px; --r-m:6px; --r-l:10px;
@@ -21,22 +21,7 @@
   padding-bottom:env(safe-area-inset-bottom,0px);
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#0F1114; --paper-2:#15181C; --panel:#1A1D22; --panel-2:#1F2328;
-    --ink:#ECEEF1; --ink-2:#AEB4BC; --ink-3:#7E858E;
-    --line:#2B3036; --line-2:#3A4047;
-    --brand:#C5CBD3; --brand-2:#AEB5BE; --brand-tint:#23272D;
-    --signal:#FFC41F; --signal-2:#FFD25C; --signal-tint:#2E2408;
-    --alert:#F2704A; --ok:#3FBD79; --warn:#E0A72A; --info:#5AA2E0;
-    --sh-1:0 1px 2px rgba(0,0,0,.4);
-    --sh-2:0 8px 28px -12px rgba(0,0,0,.7);
-    --sh-3:0 24px 60px -24px rgba(0,0,0,.8);
-    --dark-surface:#0B0D10;
-    --on-brand:#14181C;
-    color-scheme:dark;
-  }
-}
+/* light is the default for every visitor; dark applies only after they pick it with the theme button */
 :root[data-theme="dark"]{
   --paper:#0F1114; --paper-2:#15181C; --panel:#1A1D22; --panel-2:#1F2328;
   --ink:#ECEEF1; --ink-2:#AEB4BC; --ink-3:#7E858E;
@@ -126,6 +111,13 @@ section{position:relative}
 .mobmenu a[aria-current="page"]{color:var(--ink);padding-left:14px;box-shadow:inset 3px 0 0 var(--signal)}
 .mobmenu .btn{display:flex;margin-top:16px;border-bottom:0;padding:13px 16px;font-size:15px;letter-spacing:0;text-transform:none;color:#1B2128}
 
+/* ============ object shadows ============ */
+/* a soft lift under the nav, cards, tiles and buttons so they stand off the light page (the tokens are in :root;
+   dark theme swaps in its own). Hover/selected states set their own box-shadow and win by specificity. */
+.nav{box-shadow:var(--sh-2)}
+.btn:not(.btn-line),.iconbtn,.burger,.chip,.pick,.plan,.acct-btn,.auth-sbtn{box-shadow:var(--sh-1)}
+.plate,.caps,.contact-list{box-shadow:var(--sh-1)}
+
 /* ============ pages: one visible at a time (see page/router.ts) ============ */
 .page[hidden]{display:none}
 .pagehead{position:relative;overflow:hidden;padding:clamp(34px,5vw,64px) 0 clamp(30px,4vw,52px);background:linear-gradient(180deg,var(--paper-2),var(--paper));border-bottom:1px solid var(--line)}
@@ -145,12 +137,10 @@ h1[tabindex="-1"]:focus{outline:none}
    it (silver-white with dark-silver rings), dark theme keeps it dark. */
 .rings-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;--rings-o:.55}
 :root[data-theme="dark"] .rings-bg{--rings-o:.7}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rings-bg{--rings-o:.7}}
 /* the rings fade in once page/hero-bg.ts has started them (.rings-on) */
 .rings-bg .vanta-canvas{filter:grayscale(1) invert(1);opacity:0;transition:opacity 1.4s ease}
 .rings-bg.rings-on .vanta-canvas{opacity:var(--rings-o)}
 :root[data-theme="dark"] .rings-bg .vanta-canvas{filter:grayscale(1)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rings-bg .vanta-canvas{filter:grayscale(1)}}
 main{position:relative;z-index:1}
 .hero{padding:clamp(40px,6vw,76px) 0 clamp(48px,6vw,84px);position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:
@@ -309,11 +299,16 @@ main{position:relative;z-index:1}
 
 /* ============ footer ============ */
 footer{background:var(--dark-surface);color:#DDE1E6;padding:clamp(40px,5vw,68px) 0 28px;margin-top:0}
-:root[data-theme="dark"] footer,html:not([data-theme="light"]) footer{border-top:1px solid var(--line)}
+:root[data-theme="dark"] footer{border-top:1px solid var(--line)}
 .f-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px}
 footer h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#8D959E;margin-bottom:14px;font-weight:400}
 footer li{margin-bottom:8px;font-size:14px;color:#C3C9D0}
 footer a:hover{color:var(--signal)}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.socials li{margin:0}
+.socials a{display:grid;place-items:center;width:38px;height:38px;border:1px solid #3A4149;border-radius:50%;color:#C3C9D0;transition:color .15s ease,border-color .15s ease,background .15s ease}
+.socials a:hover,.socials a:focus-visible{color:var(--signal);border-color:var(--signal);background:rgba(255,255,255,.04)}
+.socials svg{width:18px;height:18px;fill:currentColor}
 .f-bot{margin-top:40px;padding-top:18px;border-top:1px solid #2A3036;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:13px;color:#7F8790}
 footer .brand{color:#fff}
 footer .brand-top{color:#fff}
